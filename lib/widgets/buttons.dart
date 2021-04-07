@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_resume/widgets/widgets.dart';
+import 'package:my_resume/widgets/decorations.dart';
 
 class NMButton extends StatelessWidget {
   final bool down;
@@ -13,7 +13,7 @@ class NMButton extends StatelessWidget {
       decoration: down ? nMboxInvert : nMbox,
       child: Icon(
         icon,
-        color: down ? fCD : fCL,
+        color: down ? fCL : fCD,
       ),
     );
   }

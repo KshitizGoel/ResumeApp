@@ -1,53 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:my_resume/widgets/widgets.dart';
+import 'package:my_resume/widgets/decorations.dart';
 
 class CreditCard extends StatelessWidget {
+
+  final Widget child;
+  CreditCard(this.child);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-      decoration: nMbox,
-      child: Column(
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text('VISA', style: TextStyle(color: fCD, fontSize: 18, fontWeight: FontWeight.w700)),
-              Icon(Icons.more_horiz, color: fCD,),
-            ],
-          ),
-          SizedBox(height: 25),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text('* * * *', style: TextStyle(color: fCD, fontSize: 18, fontWeight: FontWeight.w700)),
-              Text('* * * *', style: TextStyle(color: fCD, fontSize: 18, fontWeight: FontWeight.w700)),
-              Text('* * * *', style: TextStyle(color: fCD, fontSize: 18, fontWeight: FontWeight.w700)),
-              Text('8014', style: TextStyle(color: fCD, fontSize: 18, fontWeight: FontWeight.w700)),
-            ],
-          ),
-          SizedBox(height: 25),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text('Card Holder', style: TextStyle(color: fCL, fontSize: 12, fontWeight: FontWeight.w700)),
-                  Text('Lindsey Johnson', style: TextStyle(color: fCD, fontSize: 18, fontWeight: FontWeight.w700)),
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text('Expires', style: TextStyle(color: fCL, fontSize: 12, fontWeight: FontWeight.w700)),
-                  Text('08 / 21', style: TextStyle(color: fCD, fontSize: 18, fontWeight: FontWeight.w700)),
-                ],
-              ),
-            ],
-          )
-        ],
-      ),
+      decoration: nMboxInvert,
+      child: child,
     );
   }
 }
@@ -60,6 +24,7 @@ class NMCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: MediaQuery.of(context).size.height * 0.075,
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 7),
       decoration: nMbox,
       child: Row(
@@ -73,17 +38,41 @@ class NMCard extends StatelessWidget {
           ),
           Spacer(),
           Container(
-            decoration: active ? nMboxInvertActive : nMboxInvert,
-            width: 70,
-            height: 40,
-            child: Container(
-              margin: active
-                  ? EdgeInsets.fromLTRB(35, 5, 5, 5)
-                  : EdgeInsets.fromLTRB(5, 5, 35, 5),
-              decoration: nMbtn,
+            decoration: active ? nMboxInvert : nMboxInvert,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(
+                Icons.navigate_next
+              ),
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class EmbeddedCard extends StatelessWidget {
+
+   final bool down;
+  EmbeddedCard(  this.down);
+
+  @override
+  Widget build(BuildContext context) {
+
+    final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
+
+    return Container(
+      width: height * 0.2,
+      height: width * 0.4,
+      decoration: down ? profileBoxInvert : profileBox,
+      child: Center(
+        child: Icon(
+          Icons.person,
+          size: 50,
+          color: down ? fCD : fCL,
+        ),
       ),
     );
   }
