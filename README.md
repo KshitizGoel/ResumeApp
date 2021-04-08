@@ -1,16 +1,11 @@
 # my_resume
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## This Resume App will be my first ever app whose full stack development would be done by myself only!
 
-A few resources to get you started if this is your first Flutter project:
+The Resume app will have all the legit information about me , my education , my work experience , my skills set etc. 
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+PS : The Front End is done in Flutter Framework and the backend will be done in Spring Boot framework.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
