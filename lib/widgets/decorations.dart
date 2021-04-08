@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 Color mC = Colors.grey.shade100;
 Color mCL = Colors.white;
-Color mCD = Colors.black.withOpacity(0.075);
+Color mCD = Colors.black.withOpacity(0.1090);
 Color mCC = Colors.blue[900].withOpacity(0.65);
 Color fCD = Colors.grey.shade700;
 Color fCL = Colors.indigo.withOpacity(0.65);
@@ -38,8 +38,12 @@ BoxDecoration nMboxInvert = BoxDecoration(
 );
 
 BoxDecoration profileBox = BoxDecoration(
-    color: mCD,
-    shape: BoxShape.circle,
+     shape: BoxShape.circle,
+    color: mC,
+    border: Border.all(
+      width: 2,
+      color: mC
+    ),
     boxShadow: [
       BoxShadow(
         color: mCD,

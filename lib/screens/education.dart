@@ -8,6 +8,12 @@ class EducationSet extends StatefulWidget {
 class _EducationSetState extends State<EducationSet> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Center(
+        child: Text(
+          "Education Set"
+        ),
+      ),
+    );
   }
 }

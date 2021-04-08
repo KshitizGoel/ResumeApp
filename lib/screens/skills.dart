@@ -8,6 +8,12 @@ class SkillSet extends StatefulWidget {
 class _SkillSetState extends State<SkillSet> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Center(
+        child: Text(
+          "Skill Set"
+        ),
+      ),
+    );
   }
 }

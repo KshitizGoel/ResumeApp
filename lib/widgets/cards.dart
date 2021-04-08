@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:my_resume/assets.dart';
 import 'package:my_resume/widgets/decorations.dart';
 
-class CreditCard extends StatelessWidget {
-
+class IntroCard extends StatelessWidget {
   final Widget child;
-  CreditCard(this.child);
+
+  IntroCard(this.child);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,9 @@ class NMCard extends StatelessWidget {
   final bool active;
   final IconData icon;
   final String label;
+
   const NMCard({this.active, this.icon, this.label});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,9 +44,7 @@ class NMCard extends StatelessWidget {
             decoration: active ? nMboxInvert : nMboxInvert,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Icon(
-                Icons.navigate_next
-              ),
+              child: Icon(Icons.navigate_next),
             ),
           ),
         ],
@@ -53,25 +54,23 @@ class NMCard extends StatelessWidget {
 }
 
 class EmbeddedCard extends StatelessWidget {
+  final bool down;
 
-   final bool down;
-  EmbeddedCard(  this.down);
+  EmbeddedCard(this.down);
 
   @override
   Widget build(BuildContext context) {
-
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
 
     return Container(
       width: height * 0.2,
       height: width * 0.4,
-      decoration: down ? profileBoxInvert : profileBox,
+      decoration: !down ? profileBoxInvert : profileBox,
       child: Center(
-        child: Icon(
-          Icons.person,
-          size: 50,
-          color: down ? fCD : fCL,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(100),
+          child: Image.asset("assets/images/profile_image.jpg", fit: BoxFit.fill,),
         ),
       ),
     );

@@ -64,18 +64,22 @@ class Dashboard extends StatelessWidget {
                 NMButton(
                   down: false,
                   icon: MdiIcons.facebook,
+                  webUrl: UrlConstants.facebookUrl,
                 ),
                 NMButton(
                   down: false,
                   icon: MdiIcons.linkedin,
+                  webUrl: UrlConstants.linkedInUrl,
                 ),
                 NMButton(
                   down: false,
                   icon: MdiIcons.instagram,
+                  webUrl: UrlConstants.instagramUrl,
                 ),
                 NMButton(
                   down: false,
                   icon: MdiIcons.github,
+                  webUrl: UrlConstants.githubUrl,
                 ),
               ],
             ),
@@ -83,7 +87,7 @@ class Dashboard extends StatelessWidget {
               height: 70,
             ),
 
-            CreditCard(Column(
+            IntroCard(Column(
               children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -102,7 +106,7 @@ class Dashboard extends StatelessWidget {
                 SizedBox(height: 25),
                 Text(Texts.introductoryStatement,
                     style: TextStyle(
-                        color: fCD, fontSize: 18, fontWeight: FontWeight.w400)),
+                        color: fCD, fontSize: 15, fontWeight: FontWeight.w400)),
                 SizedBox(height: 25),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -141,7 +145,6 @@ class Dashboard extends StatelessWidget {
                 ),
               ],
             )),
-
 
             // NMCard(
             //   active: true,
