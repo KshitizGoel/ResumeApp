@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:my_resume/screens/dashboard.dart';
 import 'package:my_resume/screens/skills.dart';
+import 'package:my_resume/screens/time_line.dart';
 import 'package:my_resume/widgets/decorations.dart';
 
 import 'education.dart';
@@ -34,6 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Dashboard(),
     ExperienceSet(),
     EducationSet(),
+    TimeLine(),
     SkillSet(),
   ];
 
@@ -72,6 +74,13 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: Icon(MdiIcons.developerBoard, color: fCL),
               title: Text(
                 "Work Experience",
+                style: TextStyle(color: Colors.black),
+              ),
+              backgroundColor: mC),
+          BottomNavigationBarItem(
+              icon: Icon(MdiIcons.timeline, color: fCL),
+              title: Text(
+                "Time Line",
                 style: TextStyle(color: Colors.black),
               ),
               backgroundColor: mC),

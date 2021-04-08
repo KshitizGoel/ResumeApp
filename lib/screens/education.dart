@@ -10,9 +10,7 @@ class _EducationSetState extends State<EducationSet> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(
-          "Education Set"
-        ),
+        child: Text("Education Set"),
       ),
     );
   }

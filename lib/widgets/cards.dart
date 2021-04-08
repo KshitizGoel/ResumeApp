@@ -70,9 +70,27 @@ class EmbeddedCard extends StatelessWidget {
       child: Center(
         child: ClipRRect(
           borderRadius: BorderRadius.circular(100),
-          child: Image.asset("assets/images/profile_image.jpg", fit: BoxFit.fill,),
+          child: Image.asset(
+            "assets/images/profile_image.jpg",
+            fit: BoxFit.fill,
+          ),
         ),
       ),
+    );
+  }
+}
+
+class TimeLineCard extends StatelessWidget {
+  final Widget child;
+
+  TimeLineCard(this.child);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+      decoration: nMboxInvert,
+      child: child,
     );
   }
 }
