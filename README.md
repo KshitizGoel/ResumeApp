@@ -2,7 +2,9 @@
 
 
 
-## This Resume App will be my first ever app whose full stack development would be done by myself only!
+## This Resume App will be my first ever app whose full stack development would be done by myself only!  
+
+## WIP !!!
 
 The Resume app will have all the legit information about me , my education , my work experience , my skills set etc. 
 
