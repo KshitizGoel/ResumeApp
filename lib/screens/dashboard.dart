@@ -44,12 +44,17 @@ class Dashboard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 25),
         child: ListView(
           children: <Widget>[
-            Center(child: EmbeddedCard(true)),
+            Center(
+                child: ImageCard(
+              true,
+              imagePath: "assets/images/profile_image.jpg",
+            )),
             SizedBox(
               height: 50,
             ),
             Center(child: CustomTexts('Kshitiz Goel', true, 30, fCD)),
-            Center(child: CustomTexts('DTU Software Engineering', false, 15, fCD)),
+            Center(
+                child: CustomTexts('DTU Software Engineering \'23', false, 15, fCD)),
             SizedBox(
               height: 20,
             ),
@@ -88,7 +93,8 @@ class Dashboard extends StatelessWidget {
               height: height * 0.08,
             ),
 
-            IntroCard(Column(
+            IntroCard(
+                child: Column(
               children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

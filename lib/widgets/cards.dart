@@ -5,7 +5,7 @@ import 'package:my_resume/widgets/decorations.dart';
 class IntroCard extends StatelessWidget {
   final Widget child;
 
-  IntroCard(this.child);
+  IntroCard({this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -53,10 +53,12 @@ class NMCard extends StatelessWidget {
   }
 }
 
-class EmbeddedCard extends StatelessWidget {
+class ImageCard extends StatelessWidget {
   final bool down;
 
-  EmbeddedCard(this.down);
+  final String imagePath;
+
+  ImageCard(this.down, {this.imagePath});
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +73,7 @@ class EmbeddedCard extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(100),
           child: Image.asset(
-            "assets/images/profile_image.jpg",
+            imagePath,
             fit: BoxFit.fill,
           ),
         ),
@@ -92,5 +94,24 @@ class TimeLineCard extends StatelessWidget {
       decoration: nMboxInvert,
       child: child,
     );
+  }
+}
+
+class EduCard extends StatelessWidget {
+  final bool down;
+  final IconData icon;
+  final String webUrl;
+  const EduCard({this.down, this.icon , this.webUrl});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        width: 55,
+        height: 55,
+        decoration: down ? nMboxInvert : nMbox,
+        child: Icon(
+          icon,
+          color: down ? fCL : fCD,
+        ),
+      ) ;
   }
 }

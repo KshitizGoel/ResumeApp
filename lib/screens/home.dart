@@ -33,8 +33,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _children = [
     Dashboard(),
-    ExperienceSet(),
     EducationSet(),
+    ExperienceSet(),
     TimeLine(),
     SkillSet(),
   ];
