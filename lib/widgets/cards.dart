@@ -98,20 +98,16 @@ class TimeLineCard extends StatelessWidget {
 }
 
 class EduCard extends StatelessWidget {
-  final bool down;
-  final IconData icon;
-  final String webUrl;
-  const EduCard({this.down, this.icon , this.webUrl});
+  final Widget child;
+
+  EduCard({this.child});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 55,
-        height: 55,
-        decoration: down ? nMboxInvert : nMbox,
-        child: Icon(
-          icon,
-          color: down ? fCL : fCD,
-        ),
-      ) ;
+      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+      decoration: nMEduboxInvert,
+      child: child,
+    );
   }
 }

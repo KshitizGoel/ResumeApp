@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:my_resume/screens/dashboard.dart';
 import 'package:my_resume/screens/skills.dart';
-import 'package:my_resume/screens/time_line.dart';
 import 'package:my_resume/widgets/decorations.dart';
 
 import 'education.dart';
 import 'experience.dart';
+import 'media.dart';
 
 class HomeScreen extends StatefulWidget {
   var _indexPassed;
@@ -35,8 +35,8 @@ class _HomeScreenState extends State<HomeScreen> {
     Dashboard(),
     EducationSet(),
     ExperienceSet(),
-    TimeLine(),
     SkillSet(),
+    MediaPage()
   ];
 
   void onTappedBar(int index) {
@@ -55,7 +55,6 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
         items: [
           BottomNavigationBarItem(
-
             icon: Icon(MdiIcons.viewDashboard, color: fCL),
             title: Text(
               "Dashboard",
@@ -78,16 +77,16 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               backgroundColor: mC),
           BottomNavigationBarItem(
-              icon: Icon(MdiIcons.timeline, color: fCL),
+              icon: Icon(MdiIcons.deskLamp, color: fCL),
               title: Text(
-                "Time Line",
+                "Skills",
                 style: TextStyle(color: Colors.black),
               ),
               backgroundColor: mC),
           BottomNavigationBarItem(
-              icon: Icon(MdiIcons.deskLamp, color: fCL),
+              icon: Icon(Icons.perm_media_outlined, color: fCL),
               title: Text(
-                "Skills",
+                "Media",
                 style: TextStyle(color: Colors.black),
               ),
               backgroundColor: mC),

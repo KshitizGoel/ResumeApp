@@ -37,6 +37,19 @@ BoxDecoration nMboxInvert = BoxDecoration(
     ]
 );
 
+BoxDecoration nMEduboxInvert = BoxDecoration(
+    borderRadius: BorderRadius.circular(15),
+    color: mCD,
+    boxShadow: [
+      BoxShadow(
+          color: mCL,
+          offset: Offset(1, 1),
+          blurRadius: 1,
+          spreadRadius: -1
+      ),
+    ]
+);
+
 BoxDecoration profileBox = BoxDecoration(
      shape: BoxShape.circle,
     color: mC,
