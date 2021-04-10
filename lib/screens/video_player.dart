@@ -32,11 +32,6 @@ class _VideoPlayerState extends State<VideoPlayer> {
   bool _muted = true;
   bool _isPlayerReady = false;
 
-  final List<String> _ids = [
-    '8rUN1SAYNEE',
-    'gVqRYojBvAY',
-    'TFltNG6rHN8',
-  ];
 
   @override
   void initState() {
