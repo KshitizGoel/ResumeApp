@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:my_resume/widgets/cards.dart';
+import 'package:my_resume/widgets/decorations.dart';
+import 'package:my_resume/widgets/texts.dart';
 
 class SkillSet extends StatefulWidget {
   @override
@@ -9,9 +13,97 @@ class _SkillSetState extends State<SkillSet> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("Skill Set"),
+      backgroundColor: mC,
+      body: ListView(
+        children: [
+
+          languagesCards(context, "Flutter", "1.5 Years"),
+          languagesCards(context, "Android", "1 Year"),
+          languagesCards(context, "Java", "1 Year"),
+          languagesCards(context, "Dart", "1 Year"),
+        ],
       ),
+    );
+  }
+
+  Widget languagesCards(
+      BuildContext context, String frameworkName, String experienceYears) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10),
+      child: SkillCard(
+        down: false,
+        childWidget: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+              child: LeadingIconCard(
+                true,
+                imagePath: "assets/images/profile_image.jpg",
+              ),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 12.0, horizontal: 15),
+              child: IntroCard(
+                child:
+                    skillDescription(context, frameworkName, experienceYears),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget skillDescription(
+      BuildContext context, String framework, String experienceInYears) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                "Framework",
+                style: TextStyle(fontWeight: FontWeight.bold, color: fCD),
+              ),
+              Text(
+                framework,
+                style: TextStyle(fontWeight: FontWeight.bold, color: fCL),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                "Experience",
+                style: TextStyle(fontWeight: FontWeight.bold, color: fCD),
+              ),
+              Text(
+                experienceInYears,
+                style: TextStyle(fontWeight: FontWeight.bold, color: fCL),
+              ),
+            ],
+          ),
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Icon(
+              MdiIcons.professionalHexagon,
+              color: solidGreen,
+              size: 30,
+            ),
+          ],
+        )
+      ],
     );
   }
 }

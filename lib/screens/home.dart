@@ -72,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
               icon: Icon(MdiIcons.developerBoard, color: fCL),
               title: Text(
-                "Work Experience",
+                "Experience",
                 style: TextStyle(color: Colors.black),
               ),
               backgroundColor: mC),

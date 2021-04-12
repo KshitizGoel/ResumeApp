@@ -83,7 +83,9 @@ class _ExperienceSetState extends State<ExperienceSet> {
               ),
               content: Container(
                 width: MediaQuery.of(context).size.width,
-                child: Column(
+                child: ListView(
+
+                  shrinkWrap: true,
                   children: <Widget>[
                     Row(
                       children: <Widget>[

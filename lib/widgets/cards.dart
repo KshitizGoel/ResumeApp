@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_resume/assets.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:my_resume/widgets/decorations.dart';
 
 class IntroCard extends StatelessWidget {
@@ -108,6 +108,50 @@ class EduCard extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
       decoration: nMEduboxInvert,
       child: child,
+    );
+  }
+}
+
+class LeadingIconCard extends StatelessWidget {
+  final bool down;
+
+  final String imagePath;
+
+  LeadingIconCard(this.down, {this.imagePath});
+
+  @override
+  Widget build(BuildContext context) {
+    final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
+
+    return Container(
+      decoration: !down ? profileBoxInvert : profileBox,
+      child: Center(
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(100),
+          child: Image.asset(
+            imagePath,
+            fit: BoxFit.fill,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class SkillCard extends StatelessWidget {
+  final bool down;
+  final Widget childWidget;
+
+  const SkillCard({this.down, this.childWidget});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      //width: ,
+      height: 100,
+      decoration: down ? nMboxInvert : nMbox,
+      child: childWidget,
     );
   }
 }
