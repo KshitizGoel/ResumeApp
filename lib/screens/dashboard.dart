@@ -44,18 +44,24 @@ class Dashboard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 25),
         child: ListView(
           children: <Widget>[
-            Center(child: EmbeddedCard(true)),
+            Center(
+                child: ImageCard(
+              true,
+              imagePath: "assets/images/profile_image.jpg",
+            )),
             SizedBox(
               height: 50,
             ),
             Center(child: CustomTexts('Kshitiz Goel', true, 30, fCD)),
+            Center(
+                child: CustomTexts('DTU Software Engineering \'23', false, 15, fCD)),
             SizedBox(
               height: 20,
             ),
 
-            Center(child: CustomTexts('Mobile App Developer', false, 18, fCL)),
+            Center(child: CustomTexts('Mobile App Developer', true, 18, fCL)),
             SizedBox(
-              height: 50,
+              height: height * 0.05,
             ),
 
             Row(
@@ -63,8 +69,8 @@ class Dashboard extends StatelessWidget {
               children: <Widget>[
                 NMButton(
                   down: false,
-                  icon: MdiIcons.facebook,
-                  webUrl: UrlConstants.facebookUrl,
+                  icon: MdiIcons.github,
+                  webUrl: UrlConstants.githubUrl,
                 ),
                 NMButton(
                   down: false,
@@ -78,16 +84,17 @@ class Dashboard extends StatelessWidget {
                 ),
                 NMButton(
                   down: false,
-                  icon: MdiIcons.github,
-                  webUrl: UrlConstants.githubUrl,
+                  icon: MdiIcons.facebook,
+                  webUrl: UrlConstants.facebookUrl,
                 ),
               ],
             ),
             SizedBox(
-              height: 70,
+              height: height * 0.08,
             ),
 
-            IntroCard(Column(
+            IntroCard(
+                child: Column(
               children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

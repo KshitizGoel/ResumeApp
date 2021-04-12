@@ -37,6 +37,19 @@ BoxDecoration nMboxInvert = BoxDecoration(
     ]
 );
 
+BoxDecoration nMEduboxInvert = BoxDecoration(
+    borderRadius: BorderRadius.circular(15),
+    color: mCD,
+    boxShadow: [
+      BoxShadow(
+          color: mCL,
+          offset: Offset(1, 1),
+          blurRadius: 1,
+          spreadRadius: -1
+      ),
+    ]
+);
+
 BoxDecoration profileBox = BoxDecoration(
      shape: BoxShape.circle,
     color: mC,
@@ -58,10 +71,40 @@ BoxDecoration profileBox = BoxDecoration(
     ]
 );
 
+BoxDecoration eduBox = BoxDecoration(
+    borderRadius: BorderRadius.circular(15),
+    color: mC,
+    boxShadow: [
+      BoxShadow(
+        color: mCD,
+        offset: Offset(10, 10),
+        blurRadius: 10,
+      ),
+      BoxShadow(
+        color: mCL,
+        offset: Offset(-10, -10),
+        blurRadius: 10,
+      ),
+    ]
+);
 
 BoxDecoration profileBoxInvert = BoxDecoration(
      color: mCD,
      shape: BoxShape.circle,
+    boxShadow: [
+      BoxShadow(
+          color: mCL,
+          offset: Offset(3, 3),
+          blurRadius: 3,
+          spreadRadius: -3
+      ),
+    ]
+);
+
+
+BoxDecoration eduBoxInvert = BoxDecoration(
+    borderRadius: BorderRadius.circular(15),
+    color: mCD,
     boxShadow: [
       BoxShadow(
           color: mCL,

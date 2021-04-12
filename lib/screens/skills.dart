@@ -10,9 +10,7 @@ class _SkillSetState extends State<SkillSet> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(
-          "Skill Set"
-        ),
+        child: Text("Skill Set"),
       ),
     );
   }

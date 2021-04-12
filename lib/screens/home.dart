@@ -6,6 +6,7 @@ import 'package:my_resume/widgets/decorations.dart';
 
 import 'education.dart';
 import 'experience.dart';
+import 'media.dart';
 
 class HomeScreen extends StatefulWidget {
   var _indexPassed;
@@ -32,9 +33,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _children = [
     Dashboard(),
-    ExperienceSet(),
     EducationSet(),
+    ExperienceSet(),
     SkillSet(),
+    MediaPage()
   ];
 
   void onTappedBar(int index) {
@@ -53,7 +55,6 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
         items: [
           BottomNavigationBarItem(
-
             icon: Icon(MdiIcons.viewDashboard, color: fCL),
             title: Text(
               "Dashboard",
@@ -79,6 +80,13 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: Icon(MdiIcons.deskLamp, color: fCL),
               title: Text(
                 "Skills",
+                style: TextStyle(color: Colors.black),
+              ),
+              backgroundColor: mC),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.perm_media_outlined, color: fCL),
+              title: Text(
+                "Media",
                 style: TextStyle(color: Colors.black),
               ),
               backgroundColor: mC),
