@@ -34,9 +34,53 @@ class Dashboard extends StatelessWidget {
       drawer: Drawer(
         child: ListView(
           children: [
-            Image(
-              image: NetworkImage(UrlConstants.drawerImageUrl),
-            )
+
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: IntroCard(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, left: 15),
+                      child: Container(
+                        height: 75,
+                        child: LeadingIconCard(
+                          true,
+                          imagePath: "assets/images/profile_image.jpg",
+                        ),
+                      ),
+                    ),
+
+                    Column(
+                      children: [
+                        Text("Kshitiz Goel" , style: TextStyle(fontWeight: FontWeight.bold),),
+                        SizedBox(height: 10,),
+                        Text("Software Department" , style: TextStyle(fontWeight: FontWeight.bold , color: fCL),),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            ListTile(
+              title: Text(
+                "Student Bio"
+              ),
+              trailing: Icon(
+                Icons.arrow_forward_ios
+              ),
+            ),
+            ListTile(
+              title: Text(
+                "Achievements"
+              ),
+              trailing: Icon(
+                Icons.arrow_forward_ios
+              ),
+            ),
+
           ],
         ),
       ),
