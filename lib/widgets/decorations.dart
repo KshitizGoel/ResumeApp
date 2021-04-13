@@ -6,7 +6,7 @@ Color mCD = Colors.black.withOpacity(0.1090);
 Color mCC = Colors.blue[900].withOpacity(0.65);
 Color fCD = Colors.grey.shade700;
 Color fCL = Colors.indigo.withOpacity(0.65);
-Color solidGreen = Colors.lightGreenAccent.withOpacity(0.65);
+Color solidGreen = Colors.green.withOpacity(0.65);
 
 BoxDecoration nMbox = BoxDecoration(
     borderRadius: BorderRadius.circular(15),

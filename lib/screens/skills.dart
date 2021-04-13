@@ -17,10 +17,18 @@ class _SkillSetState extends State<SkillSet> {
       body: ListView(
         children: [
 
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //   children: [
+              //     publishingCards(),
+              //     publishingCards(),
+              //   ],
+              // ),
+
           languagesCards(context, "Flutter", "1.5 Years"),
           languagesCards(context, "Android", "1 Year"),
-          languagesCards(context, "Java", "1 Year"),
-          languagesCards(context, "Dart", "1 Year"),
+          languagesCards(context, "Android", "1 Year"),
+          languagesCards(context, "Android", "1 Year"),
         ],
       ),
     );
@@ -55,6 +63,7 @@ class _SkillSetState extends State<SkillSet> {
       ),
     );
   }
+
 
   Widget skillDescription(
       BuildContext context, String framework, String experienceInYears) {
@@ -106,4 +115,30 @@ class _SkillSetState extends State<SkillSet> {
       ],
     );
   }
+
+  Widget publishingCards() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10),
+      child:  Container(
+        width: 150,
+        child: PublishingCard(
+          down: true,
+          childWidget: Column(
+            children: [
+              Padding(
+                padding:
+                const EdgeInsets.symmetric(vertical: 12.0, horizontal: 15),
+                child:  IntroCard(
+                  child: Text("Code Chef Rankings"),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+
+    );
+  }
+
+
 }

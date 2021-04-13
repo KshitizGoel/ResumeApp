@@ -17,6 +17,22 @@ class IntroCard extends StatelessWidget {
   }
 }
 
+
+class InvertIntroCard extends StatelessWidget {
+  final Widget child;
+
+  InvertIntroCard({this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+      decoration: nMbox ,
+      child: child,
+    );
+  }
+}
+
 class NMCard extends StatelessWidget {
   final bool active;
   final IconData icon;
@@ -121,8 +137,6 @@ class LeadingIconCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
-    final double width = MediaQuery.of(context).size.width;
 
     return Container(
       decoration: !down ? profileBoxInvert : profileBox,
@@ -151,6 +165,25 @@ class SkillCard extends StatelessWidget {
       //width: ,
       height: 100,
       decoration: down ? nMboxInvert : nMbox,
+      child: childWidget,
+    );
+  }
+}
+
+
+class PublishingCard extends StatelessWidget {
+  final bool down;
+  final Widget childWidget;
+
+   PublishingCard({this.down, this.childWidget});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 200,
+      width: 100,
+
+      decoration: down ? nMbox : nMboxInvert ,
       child: childWidget,
     );
   }
