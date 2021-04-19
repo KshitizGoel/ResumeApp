@@ -69,20 +69,35 @@ class VideoPlayerButton extends StatelessWidget {
 }
 
 class GeneralButton extends StatelessWidget {
-  final bool down;
   final IconData icon;
-  const GeneralButton({this.down, this.icon });
+  final Color colors;
+  const GeneralButton({this.colors , this.icon});
 
   @override
   Widget build(BuildContext context) {
-    return   Container(
-        width: 55,
-        height: 55,
-        decoration: down ? nMboxInvert : nMbox,
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: colors,
+          boxShadow: [
+            BoxShadow(
+              color: mCD,
+              offset: Offset(10, 10),
+              blurRadius: 10,
+            ),
+            BoxShadow(
+              color: mCL,
+              offset: Offset(-10, -10),
+              blurRadius: 10,
+            ),
+          ]),
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
         child: Icon(
           icon,
-          color: down ? fCL : fCD,
+          color: mC,
         ),
-     );
+      ),
+    );
   }
 }
