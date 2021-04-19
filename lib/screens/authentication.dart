@@ -9,32 +9,21 @@ import 'package:my_resume/widgets/decorations.dart';
 import 'dart:async';
 import 'dart:convert' show json;
 
-GoogleSignIn _googleSignIn = GoogleSignIn(
-  // Optional clientId
-  // clientId: '479882132969-9i9aqik3jfjd7qhci1nqf0bm2g71rm1u.apps.googleusercontent.com',
-  scopes: <String>[
-    'email',
-    'https://www.googleapis.com/auth/contacts.readonly',
-  ],
-);
-
 class Authentication extends StatefulWidget {
   @override
   _AuthenticationState createState() => _AuthenticationState();
 }
 
 class _AuthenticationState extends State<Authentication> {
+
+  //Asking about the permissions from the users like contacts , gallery etc..
   GoogleSignIn _googleSignIn = GoogleSignIn(
-    // Optional clientId
-    // clientId: '479882132969-9i9aqik3jfjd7qhci1nqf0bm2g71rm1u.apps.googleusercontent.com',
     scopes: <String>[
       'email',
-      'https://www.googleapis.com/auth/contacts.readonly',
     ],
   );
 
   GoogleSignInAccount _currentUser;
-  String _contactText = '';
 
   @override
   void initState() {
@@ -44,56 +33,12 @@ class _AuthenticationState extends State<Authentication> {
         _currentUser = account;
       });
       if (_currentUser != null) {
-        _handleGetContact(_currentUser);
+        print("Auto Logging In The User!!!!!");
+        print(_currentUser);
+        navigatingToSignedInUser();
       }
     });
     _googleSignIn.signInSilently();
-  }
-
-  Future<void> _handleGetContact(GoogleSignInAccount user) async {
-    setState(() {
-      _contactText = "Loading contact info...";
-    });
-    final http.Response response = await http.get(
-      Uri.parse('https://people.googleapis.com/v1/people/me/connections'
-          '?requestMask.includeField=person.names'),
-      headers: await user.authHeaders,
-    );
-    if (response.statusCode != 200) {
-      setState(() {
-        _contactText = "People API gave a ${response.statusCode} "
-            "response. Check logs for details.";
-      });
-      print('People API ${response.statusCode} response: ${response.body}');
-      return;
-    }
-    final Map<String, dynamic> data = json.decode(response.body);
-    final String namedContact = _pickFirstNamedContact(data);
-    setState(() {
-      if (namedContact != null) {
-        _contactText = "I see you know $namedContact!";
-      } else {
-        _contactText = "No contacts to display.";
-      }
-    });
-  }
-
-  String _pickFirstNamedContact(Map<String, dynamic> data) {
-    final List<dynamic> connections = data['connections'];
-    final Map<String, dynamic> contact = connections?.firstWhere(
-      (dynamic contact) => contact['names'] != null,
-      orElse: () => null,
-    );
-    if (contact != null) {
-      final Map<String, dynamic> name = contact['names'].firstWhere(
-        (dynamic name) => name['displayName'] != null,
-        orElse: () => null,
-      );
-      if (name != null) {
-        return name['displayName'];
-      }
-    }
-    return null;
   }
 
   Future<void> _handleSignIn() async {
@@ -103,6 +48,13 @@ class _AuthenticationState extends State<Authentication> {
       print(error);
     }
   }
+
+  Future <dynamic> navigatingToSignedInUser() async{
+    Navigator.of(context).push(MaterialPageRoute(builder: (context){
+      return HomeScreen(0);
+    }));
+  }
+
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -233,7 +185,7 @@ class _AuthenticationState extends State<Authentication> {
                 InkWell(
                   onTap: _handleSignIn,
                   child: GeneralButton(
-                    colors: fCL,
+                    colors: fCR,
                     icon: MdiIcons.google,
                   ),
                 ),
@@ -245,7 +197,7 @@ class _AuthenticationState extends State<Authentication> {
                     }));
                   },
                   child: GeneralButton(
-                    colors: fCL,
+                    colors: fCD,
                     icon: MdiIcons.github,
                   ),
                 ),
@@ -257,7 +209,7 @@ class _AuthenticationState extends State<Authentication> {
                     }));
                   },
                   child: GeneralButton(
-                    colors: fCL,
+                    colors: fCB,
                     icon: MdiIcons.facebook,
                   ),
                 ),
@@ -269,7 +221,7 @@ class _AuthenticationState extends State<Authentication> {
                     }));
                   },
                   child: GeneralButton(
-                    colors: fCL,
+                    colors: fCT,
                     icon: MdiIcons.twitter,
                   ),
                 ),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:my_resume/constants/texts.dart';
 import 'package:my_resume/constants/urls.dart';
+import 'package:my_resume/screens/authentication.dart';
 import 'package:my_resume/widgets/buttons.dart';
 import 'package:my_resume/widgets/cards.dart';
 import 'package:my_resume/widgets/decorations.dart';
@@ -9,6 +11,20 @@ import 'package:my_resume/widgets/texts.dart';
 
 class Dashboard extends StatelessWidget {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  GoogleSignIn _googleSignIn = GoogleSignIn(
+    scopes: <String>[
+      'email',
+    ],
+  );
+
+  Future<dynamic> loggingOutTheUser(BuildContext context) async {
+    _googleSignIn.disconnect();
+    print("Logging out the user!!!!");
+    Navigator.of(context).push(MaterialPageRoute(builder: (context){
+      return Authentication();
+    }));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +46,14 @@ class Dashboard extends StatelessWidget {
             color: fCD,
           ),
         ),
+        actions: [
+          IconButton(
+              icon: Icon(MdiIcons.logout , color: fCD,), onPressed:()=> loggingOutTheUser(context))
+        ],
       ),
       drawer: Drawer(
         child: ListView(
           children: [
-
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: IntroCard(
@@ -51,36 +70,34 @@ class Dashboard extends StatelessWidget {
                         ),
                       ),
                     ),
-
                     Column(
                       children: [
-                        Text("Kshitiz Goel" , style: TextStyle(fontWeight: FontWeight.bold),),
-                        SizedBox(height: 10,),
-                        Text("Software Department" , style: TextStyle(fontWeight: FontWeight.bold , color: fCL),),
+                        Text(
+                          "Kshitiz Goel",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Software Department",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, color: fCL),
+                        ),
                       ],
                     ),
                   ],
                 ),
               ),
             ),
-
             ListTile(
-              title: Text(
-                "Student Bio"
-              ),
-              trailing: Icon(
-                Icons.arrow_forward_ios
-              ),
+              title: Text("Student Bio"),
+              trailing: Icon(Icons.arrow_forward_ios),
             ),
             ListTile(
-              title: Text(
-                "Achievements"
-              ),
-              trailing: Icon(
-                Icons.arrow_forward_ios
-              ),
+              title: Text("Achievements"),
+              trailing: Icon(Icons.arrow_forward_ios),
             ),
-
           ],
         ),
       ),
@@ -98,16 +115,15 @@ class Dashboard extends StatelessWidget {
             ),
             Center(child: CustomTexts('Kshitiz Goel', true, 30, fCD)),
             Center(
-                child: CustomTexts('DTU Software Engineering \'23', false, 15, fCD)),
+                child: CustomTexts(
+                    'DTU Software Engineering \'23', false, 15, fCD)),
             SizedBox(
               height: 20,
             ),
-
             Center(child: CustomTexts('Mobile App Developer', true, 18, fCL)),
             SizedBox(
               height: height * 0.05,
             ),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -136,14 +152,13 @@ class Dashboard extends StatelessWidget {
             SizedBox(
               height: height * 0.08,
             ),
-
             IntroCard(
                 child: Column(
               children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text('Ola Amigo !',
+                    Text('Hello World!',
                         style: TextStyle(
                             color: fCD,
                             fontSize: 18,
@@ -196,26 +211,6 @@ class Dashboard extends StatelessWidget {
                 ),
               ],
             )),
-
-            // NMCard(
-            //   active: true,
-            //   icon: MdiIcons.school,
-            //   label: 'Education',
-            // ),
-            // SizedBox(height: 30,),
-            //
-            // NMCard(
-            //   active: true,
-            //   icon: Icons.work,
-            //   label: 'Mobile App Developer',
-            // ),
-            // SizedBox(height: 30,),
-            //
-            // NMCard(
-            //   active: true,
-            //   icon: MdiIcons.timerSand,
-            //   label: 'Experience',
-            // ),
           ],
         ),
       ),
