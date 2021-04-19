@@ -13,6 +13,8 @@ Back End : Spring Boot.
 
 The Resume app will have all the legit information about me , my education , my work experience , my skills set etc. 
 
+<img src="https://user-images.githubusercontent.com/67114557/115240769-b663c180-a13d-11eb-8548-f8a45204a10c.jpg" width="150"> 
+<img src="https://user-images.githubusercontent.com/67114557/115240786-b9f74880-a13d-11eb-887f-8bc7d5a7fb1a.jpg" width="150"> 
 <img src="https://user-images.githubusercontent.com/67114557/114353730-fdc0df80-9b8a-11eb-9169-e0436b7743f2.jpg" width="150">
 <img src="https://user-images.githubusercontent.com/67114557/114353835-1af5ae00-9b8b-11eb-9814-43581999c65a.jpg" width="150">
 <img src="https://user-images.githubusercontent.com/67114557/114353907-319c0500-9b8b-11eb-838d-f944cfffb1a7.jpg" width="150">
