@@ -16,14 +16,13 @@ class _SkillSetState extends State<SkillSet> {
       backgroundColor: mC,
       body: ListView(
         children: [
-
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //   children: [
-              //     publishingCards(),
-              //     publishingCards(),
-              //   ],
-              // ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //   children: [
+          //     publishingCards(),
+          //     publishingCards(),
+          //   ],
+          // ),
 
           languagesCards(context, "Flutter", "1.5 Years"),
           languagesCards(context, "Android", "1 Year"),
@@ -46,13 +45,13 @@ class _SkillSetState extends State<SkillSet> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
               child: LeadingIconCard(
-                true,
+                false,
                 imagePath: "assets/images/profile_image.jpg",
               ),
             ),
             Padding(
               padding:
-                  const EdgeInsets.symmetric(vertical: 12.0, horizontal: 15),
+                  const EdgeInsets.symmetric(vertical: 12.0 , horizontal: 15),
               child: IntroCard(
                 child:
                     skillDescription(context, frameworkName, experienceYears),
@@ -64,15 +63,12 @@ class _SkillSetState extends State<SkillSet> {
     );
   }
 
-
   Widget skillDescription(
       BuildContext context, String framework, String experienceInYears) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: Column(
+          Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
@@ -84,8 +80,7 @@ class _SkillSetState extends State<SkillSet> {
                 style: TextStyle(fontWeight: FontWeight.bold, color: fCL),
               ),
             ],
-          ),
-        ),
+         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: Column(
@@ -116,10 +111,13 @@ class _SkillSetState extends State<SkillSet> {
     );
   }
 
+  //Publishing Cards is the card for displaying the Hackathon or CodeChef
+  // achievements and for now its not for use!!
+
   Widget publishingCards() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10),
-      child:  Container(
+      child: Container(
         width: 150,
         child: PublishingCard(
           down: true,
@@ -127,8 +125,8 @@ class _SkillSetState extends State<SkillSet> {
             children: [
               Padding(
                 padding:
-                const EdgeInsets.symmetric(vertical: 12.0, horizontal: 15),
-                child:  IntroCard(
+                    const EdgeInsets.symmetric(vertical: 12.0, horizontal: 15),
+                child: IntroCard(
                   child: Text("Code Chef Rankings"),
                 ),
               ),
@@ -136,9 +134,6 @@ class _SkillSetState extends State<SkillSet> {
           ),
         ),
       ),
-
     );
   }
-
-
 }

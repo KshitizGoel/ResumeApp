@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_resume/screens/authentication.dart';
  import 'package:my_resume/screens/home.dart';
 
 void main(){
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(0),
+      home: Authentication(),
     );
   }
 }

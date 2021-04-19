@@ -131,6 +131,9 @@ class _MediaPageState extends State<MediaPage> {
                     child: CustomTexts("Video Resume", true, 20, fCD),
                   ),
 
+                  //Button for downloading the PDF..
+
+
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 20.0, vertical: 40),
@@ -140,6 +143,9 @@ class _MediaPageState extends State<MediaPage> {
                       webUrl: UrlConstants.githubUrl,
                     ),
                   ),
+
+                  //Buttons for the Google Play Store , App store hosted website etc..
+
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: Row(
@@ -172,7 +178,7 @@ class _MediaPageState extends State<MediaPage> {
                     height: 40,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       VideoPlayerButton(
                         down: false,
@@ -190,7 +196,7 @@ class _MediaPageState extends State<MediaPage> {
                     height: 40,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       VideoPlayerButton(
                         down: false,
