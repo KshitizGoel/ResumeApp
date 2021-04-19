@@ -3,7 +3,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:my_resume/constants/texts.dart';
 import 'package:my_resume/constants/urls.dart';
-import 'package:my_resume/screens/authentication.dart';
+import 'package:my_resume/screens/authentication/authentication.dart';
+import 'package:my_resume/services/firebase/google_auth.dart';
 import 'package:my_resume/widgets/buttons.dart';
 import 'package:my_resume/widgets/cards.dart';
 import 'package:my_resume/widgets/decorations.dart';
@@ -12,19 +13,7 @@ import 'package:my_resume/widgets/texts.dart';
 class Dashboard extends StatelessWidget {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  GoogleSignIn _googleSignIn = GoogleSignIn(
-    scopes: <String>[
-      'email',
-    ],
-  );
-
-  Future<dynamic> loggingOutTheUser(BuildContext context) async {
-    _googleSignIn.disconnect();
-    print("Logging out the user!!!!");
-    Navigator.of(context).push(MaterialPageRoute(builder: (context){
-      return Authentication();
-    }));
-  }
+  GoogleAuth googleAuth = GoogleAuth();
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +37,11 @@ class Dashboard extends StatelessWidget {
         ),
         actions: [
           IconButton(
-              icon: Icon(MdiIcons.logout , color: fCD,), onPressed:()=> loggingOutTheUser(context))
+              icon: Icon(
+                MdiIcons.logout,
+                color: fCD,
+              ),
+              onPressed: () => googleAuth.loggingOutTheUser(context))
         ],
       ),
       drawer: Drawer(
