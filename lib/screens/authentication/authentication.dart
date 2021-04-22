@@ -1,10 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:my_resume/screens/home.dart';
+import 'package:my_resume/services/firebase/phone_auth.dart';
 import 'package:my_resume/widgets/buttons.dart';
 import 'package:my_resume/widgets/decorations.dart';
+import 'package:sms_autofill/sms_autofill.dart';
 import 'dart:async';
 
 import 'otp_verification.dart';
@@ -26,6 +29,9 @@ class _AuthenticationState extends State<Authentication> {
   GoogleSignInAccount _currentUser;
 
   TextEditingController phoneNumberController = TextEditingController();
+
+  String autoFillPhoneNumber;
+
 
   @override
   void initState() {
@@ -57,8 +63,13 @@ class _AuthenticationState extends State<Authentication> {
     }));
   }
 
+  final SmsAutoFill _autoFill = SmsAutoFill();
+
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: mC,
       body: Padding(
         padding: const EdgeInsets.all(18.0),
@@ -75,45 +86,56 @@ class _AuthenticationState extends State<Authentication> {
             SizedBox(
               height: 40.0,
             ),
-            Text("Mobile Number"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Mobile Number"),
+                Icon(
+                  MdiIcons.phone,
+                  color: fCD,
+                ),
+              ],
+            ),
             SizedBox(
               height: 10.0,
             ),
             Container(
-                decoration: BoxDecoration(
-                    color: Color(0XFFEFF3F6),
-                    borderRadius: BorderRadius.circular(100.0),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.1),
-                          offset: Offset(6, 2),
-                          blurRadius: 6.0,
-                          spreadRadius: 3.0),
-                      BoxShadow(
-                          color: Color.fromRGBO(255, 255, 255, 0.9),
-                          offset: Offset(-6, -2),
-                          blurRadius: 6.0,
-                          spreadRadius: 3.0)
-                    ]),
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20),
-                  child: TextField(
-                    controller: phoneNumberController,
-                    keyboardType: TextInputType.phone,
-                    decoration: InputDecoration(
-                        border: InputBorder.none, hintText: "+91"),
-                  ),
+              decoration: BoxDecoration(
+                  color: Color(0XFFEFF3F6),
+                  borderRadius: BorderRadius.circular(100.0),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.1),
+                        offset: Offset(6, 2),
+                        blurRadius: 6.0,
+                        spreadRadius: 3.0),
+                    BoxShadow(
+                        color: Color.fromRGBO(255, 255, 255, 0.9),
+                        offset: Offset(-6, -2),
+                        blurRadius: 6.0,
+                        spreadRadius: 3.0)
+                  ]),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20),
+                child: TextField(
+                  controller: phoneNumberController,
+                  keyboardType: TextInputType.phone,
+                  decoration: InputDecoration(
+                      border: InputBorder.none, hintText: "+91"),
                 ),
               ),
-             SizedBox(
+            ),
+            SizedBox(
               height: 30.0,
             ),
             Padding(
               padding: const EdgeInsets.only(top: 20.0),
               child: InkWell(
-                onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                onTap: () async {
+                  sendingTheOtp(phoneNumberController.text.toString());
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
                     return OTPVerification();
                   }));
                 },
@@ -208,4 +230,10 @@ class _AuthenticationState extends State<Authentication> {
       ),
     );
   }
+
+
+
+
+
+
 }

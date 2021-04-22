@@ -13,7 +13,7 @@ import 'package:my_resume/widgets/texts.dart';
 class Dashboard extends StatelessWidget {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  GoogleAuth googleAuth = GoogleAuth();
+  // GoogleAuth googleAuth = GoogleAuth();
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class Dashboard extends StatelessWidget {
                 MdiIcons.logout,
                 color: fCD,
               ),
-              onPressed: () => googleAuth.loggingOutTheUser(context))
+              onPressed: () =>  loggingOutTheUser(context))
         ],
       ),
       drawer: Drawer(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_resume/services/firebase/phone_auth.dart';
 import 'package:my_resume/widgets/decorations.dart';
 
 class OTPVerification extends StatefulWidget {
@@ -69,28 +70,33 @@ class _OTPVerificationState extends State<OTPVerification> {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 20.0),
-              child: Container(
-                padding: EdgeInsets.all(15.0),
-                child: Center(
-                    child: Text(
-                      "Verify",
-                      style: TextStyle(color: Colors.white, fontSize: 16.0),
-                    )),
-                decoration: BoxDecoration(
-                    color: fCL,
-                    borderRadius: BorderRadius.circular(100.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: mCD,
-                        offset: Offset(10, 10),
-                        blurRadius: 10,
-                      ),
-                      BoxShadow(
-                        color: mCL,
-                        offset: Offset(-10, -10),
-                        blurRadius: 10,
-                      ),
-                    ]),
+              child: InkWell(
+                onTap: (){
+                  verifyingTheOTP(otpCodeController.text.toString());
+                },
+                child: Container(
+                  padding: EdgeInsets.all(15.0),
+                  child: Center(
+                      child: Text(
+                        "Verify",
+                        style: TextStyle(color: Colors.white, fontSize: 16.0),
+                      )),
+                  decoration: BoxDecoration(
+                      color: fCL,
+                      borderRadius: BorderRadius.circular(100.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: mCD,
+                          offset: Offset(10, 10),
+                          blurRadius: 10,
+                        ),
+                        BoxShadow(
+                          color: mCL,
+                          offset: Offset(-10, -10),
+                          blurRadius: 10,
+                        ),
+                      ]),
+                ),
               ),
             ),
           ],
