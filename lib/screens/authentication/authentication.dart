@@ -32,7 +32,6 @@ class _AuthenticationState extends State<Authentication> {
 
   String autoFillPhoneNumber;
 
-
   @override
   void initState() {
     super.initState();
@@ -58,9 +57,19 @@ class _AuthenticationState extends State<Authentication> {
   }
 
   Future<dynamic> navigatingToSignedInUser() async {
+    final GoogleSignInAuthentication googleAuth =
+        await _currentUser.authentication;
+
+    final GoogleAuthCredential credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+
     Navigator.of(context).push(MaterialPageRoute(builder: (context) {
       return HomeScreen(0);
     }));
+
+    return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
   final SmsAutoFill _autoFill = SmsAutoFill();
@@ -230,10 +239,4 @@ class _AuthenticationState extends State<Authentication> {
       ),
     );
   }
-
-
-
-
-
-
 }

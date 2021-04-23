@@ -13,17 +13,7 @@ GoogleSignIn _googleSignIn = GoogleSignIn(
   ],
 );
 
-//Handling The Sign In User
-Future<void> handleSignIn() async {
-  try {
-    await _googleSignIn.signIn();
-    _googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount account) {
-      currentUser = account;
-    });
-  } catch (error) {
-    print(error);
-  }
-}
+
 
 //logging out the user from the App.
 Future<dynamic> loggingOutTheUser(BuildContext context) async {
