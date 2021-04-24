@@ -57,6 +57,8 @@ class _AuthenticationState extends State<Authentication> {
   }
 
   Future<dynamic> navigatingToSignedInUser() async {
+
+    //Getting the credentials for the Google Sign In
     final GoogleSignInAuthentication googleAuth =
         await _currentUser.authentication;
 

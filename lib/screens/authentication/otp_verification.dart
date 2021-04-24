@@ -72,7 +72,7 @@ class _OTPVerificationState extends State<OTPVerification> {
               padding: const EdgeInsets.only(top: 20.0),
               child: InkWell(
                 onTap: (){
-                  verifyingTheOTP(otpCodeController.text.toString());
+                  verifyingTheOTP(otpCodeController.text.toString() , context);
                 },
                 child: Container(
                   padding: EdgeInsets.all(15.0),

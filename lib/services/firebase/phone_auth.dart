@@ -1,16 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:my_resume/screens/dashboard.dart';
 
+//  We are successfully authenticating my mobile Number.
+//  We are sending the OTP to every mobile.
+//  Minor Task : Navigating the user to next screen so that manual entry is allowed!
+//  Take codeSent to next Screen and then get the sms code from there and change the smsCode!
 
-//We are successfully authenticating my mobile Number.
-// We are sending the OTP to every mobile.
-//Minor Task : Navigating the user to next screen so that manual entry is allowed!
-// Take codeSent to next Screen and then get the sms code from there and change the smsCode!
-
+String _verificationId;
+FirebaseAuth auth = FirebaseAuth.instance;
 
 void sendingTheOtp(String phoneNumber) async {
-  FirebaseAuth auth = FirebaseAuth.instance;
-
   try {
     await auth.verifyPhoneNumber(
       phoneNumber: "+91 " + phoneNumber,
@@ -21,7 +21,6 @@ void sendingTheOtp(String phoneNumber) async {
         // Sign the user in (or link) with the auto-generated credential
         await auth.signInWithCredential(credential);
         print("Executing the verificationCompleted Function");
-
       },
       verificationFailed: (FirebaseAuthException e) {
         if (e.code == 'invalid-phone-number') {
@@ -31,18 +30,10 @@ void sendingTheOtp(String phoneNumber) async {
       },
       codeSent: (String verificationId, int resendToken) async {
         // Update the UI - wait for the user to enter the SMS code
-        String smsCode ='696969';
 
         print("Executing the codeSent Function");
 
-        // Create a PhoneAuthCredential with the code
-        PhoneAuthCredential credential = PhoneAuthProvider.credential(
-            verificationId: verificationId, smsCode: smsCode);
-
-        print("Getting the Verification ID here !!!\n$verificationId");
-
-        // Sign the user in (or link) with the credential
-        await auth.signInWithCredential(credential);
+        _verificationId = verificationId;
       },
       codeAutoRetrievalTimeout: (String verificationId) {
         // Auto-resolution timed out...
@@ -50,42 +41,22 @@ void sendingTheOtp(String phoneNumber) async {
     );
   } catch (e) {
     print("Getting the Error here! \n$e");
-
-   }
-
-
-
+  }
 }
 
-void verifyingTheOTP(String verificationCode) async {
-  FirebaseAuth auth = FirebaseAuth.instance;
-
+void verifyingTheOTP(String verificationCode, BuildContext context) async {
   try {
-    await auth.verifyPhoneNumber(
-      codeSent: (String verificationId, int resendToken) async {
-        // Update the UI - wait for the user to enter the SMS code
-        String smsCode = verificationCode;
+    PhoneAuthCredential credential = PhoneAuthProvider.credential(
+        verificationId: _verificationId, smsCode: verificationCode);
 
-        print("Executing the codeSent Function");
+    await auth.signInWithCredential(credential);
 
-        // Create a PhoneAuthCredential with the code
-        PhoneAuthCredential credential = PhoneAuthProvider.credential(
-            verificationId: verificationId, smsCode: smsCode);
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+      return Dashboard();
+    }));
 
-        print("Getting the Verification ID here !!!\n$verificationId");
-
-        // Sign the user in (or link) with the credential
-        await auth.signInWithCredential(credential);
-      },
-      codeAutoRetrievalTimeout: (String verificationId) {
-        // Auto-resolution timed out...
-      },
-    );
+    print("Successfully Signed In!!!");
   } catch (e) {
     print("Getting the Error here! \n$e");
-
   }
-
-
-
 }
