@@ -8,7 +8,11 @@ Color fCL = Colors.indigo.withOpacity(0.65);
 Color fCR = Colors.red[700].withOpacity(0.65);
 Color fCT = Colors.blue.withOpacity(0.65);
 Color fCB = Colors.blue[700].withOpacity(0.65);
- Color solidGreen = Colors.green.withOpacity(0.65);
+Color solidGreen = Colors.green.withOpacity(0.65);
+
+
+
+
 
 BoxDecoration nMbox = BoxDecoration(
     borderRadius: BorderRadius.circular(15),

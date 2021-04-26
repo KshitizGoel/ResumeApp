@@ -1,5 +1,7 @@
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -48,7 +50,7 @@ class _AuthenticationState extends State<Authentication> {
     _googleSignIn.signInSilently();
   }
 
-  Future<void> _handleSignIn() async {
+  Future<void> _handleGoogleSignIn() async {
     try {
       await _googleSignIn.signIn();
     } catch (error) {
@@ -56,8 +58,43 @@ class _AuthenticationState extends State<Authentication> {
     }
   }
 
-  Future<dynamic> navigatingToSignedInUser() async {
+  static final FacebookLogin facebookSignIn = new FacebookLogin();
 
+  String _message = 'Log in/out by pressing the buttons below.';
+
+  Future<Null> _login() async {
+    final FacebookLoginResult result = await facebookSignIn.logIn(['email']);
+
+    switch (result.status) {
+      case FacebookLoginStatus.loggedIn:
+        final FacebookAccessToken accessToken = result.accessToken;
+        _showMessage('''
+         Logged in!
+         
+         Token: ${accessToken.token}
+         User id: ${accessToken.userId}
+         Expires: ${accessToken.expires}
+         Permissions: ${accessToken.permissions}
+         Declined permissions: ${accessToken.declinedPermissions}
+         ''');
+        break;
+      case FacebookLoginStatus.cancelledByUser:
+        _showMessage('Login cancelled by the user.');
+        break;
+      case FacebookLoginStatus.error:
+        _showMessage('Something went wrong with the login process.\n'
+            'Here\'s the error Facebook gave us: ${result.errorMessage}');
+        break;
+    }
+  }
+
+  void _showMessage(String message) {
+    setState(() {
+      _message = message;
+    });
+  }
+
+  Future<dynamic> navigatingToSignedInUser() async {
     //Getting the credentials for the Google Sign In
     final GoogleSignInAuthentication googleAuth =
         await _currentUser.authentication;
@@ -192,7 +229,7 @@ class _AuthenticationState extends State<Authentication> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 InkWell(
-                  onTap: _handleSignIn,
+                  onTap: _handleGoogleSignIn,
                   child: GeneralButton(
                     colors: fCR,
                     icon: MdiIcons.google,
@@ -212,10 +249,11 @@ class _AuthenticationState extends State<Authentication> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return HomeScreen(0);
-                    }));
+                    _login();
+                    // Navigator.of(context)
+                    //     .push(MaterialPageRoute(builder: (context) {
+                    //   return HomeScreen(0);
+                    // }));
                   },
                   child: GeneralButton(
                     colors: fCB,
