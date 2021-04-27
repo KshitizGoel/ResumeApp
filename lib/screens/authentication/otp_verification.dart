@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_resume/services/firebase/phone_auth.dart';
-import 'package:my_resume/widgets/decorations.dart';
+import 'package:my_resume/repository/firebase/phone_auth.dart';
+ import 'package:my_resume/widgets/decorations.dart';
+import 'package:provider/provider.dart';
 
 class OTPVerification extends StatefulWidget {
   @override
@@ -10,6 +11,14 @@ class OTPVerification extends StatefulWidget {
 class _OTPVerificationState extends State<OTPVerification> {
 
   TextEditingController otpCodeController = TextEditingController();
+
+  PhoneAuthVerification phoneAuthVerification;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    phoneAuthVerification = Provider.of<PhoneAuthVerification>(context); //didDe
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +81,7 @@ class _OTPVerificationState extends State<OTPVerification> {
               padding: const EdgeInsets.only(top: 20.0),
               child: InkWell(
                 onTap: (){
-                  verifyingTheOTP(otpCodeController.text.toString() , context);
+                  phoneAuthVerification.verifyingTheOTP(otpCodeController.text.toString() , context);
                 },
                 child: Container(
                   padding: EdgeInsets.all(15.0),
@@ -104,4 +113,6 @@ class _OTPVerificationState extends State<OTPVerification> {
       ),
     );
   }
+
+
 }

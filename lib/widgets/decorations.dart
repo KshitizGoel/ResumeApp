@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
-Color mC = Colors.grey.shade100;
-Color mCL = Colors.white;
+Color mC = Colors.grey[900];
+Color mCL = Colors.grey[850];
 Color mCD = Colors.black.withOpacity(0.1090);
-Color fCD = Colors.grey.shade700;
-Color fCL = Colors.indigo.withOpacity(0.65);
+Color fCD = Colors.white;
+Color fCL = Colors.blue[400].withOpacity(0.95);
 Color fCR = Colors.red[700].withOpacity(0.65);
-Color fCT = Colors.blue.withOpacity(0.65);
-Color fCB = Colors.blue[700].withOpacity(0.65);
+Color fCT = Colors.blue[300 ].withOpacity(0.95);
+Color fCB = Colors.blue[600].withOpacity(0.95);
 Color solidGreen = Colors.green.withOpacity(0.65);
-
-
+Color hCT = Colors.white;
 
 
 

@@ -16,6 +16,8 @@ class _EducationSetState extends State<EducationSet> {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     return Scaffold(
+        backgroundColor: mC,
+
         body: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: ListView(

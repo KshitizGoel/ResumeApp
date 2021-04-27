@@ -79,7 +79,7 @@ class _ExperienceSetState extends State<ExperienceSet> {
               state: StepState.complete,
               title: Text(
                 'Completed - 14, Apr',
-                style: TextStyle(fontWeight: FontWeight.w600),
+                style: TextStyle(fontWeight: FontWeight.w600 , color: fCD),
               ),
               content: Container(
                 width: MediaQuery.of(context).size.width,
@@ -97,10 +97,10 @@ class _ExperienceSetState extends State<ExperienceSet> {
                             children: <Widget>[
                               Text("Assigned to",
                                   style:
-                                  TextStyle(fontWeight: FontWeight.w500)),
+                                  TextStyle(fontWeight: FontWeight.w500 ,color: fCD)),
                               Text("Kshitiz Goel",
                                   style:
-                                  TextStyle(fontWeight: FontWeight.w600)),
+                                  TextStyle(fontWeight: FontWeight.w600,color: fCD)),
                             ],
                           ),
                         )
@@ -115,7 +115,7 @@ class _ExperienceSetState extends State<ExperienceSet> {
             state: StepState.complete,
             title: Text(
               'Completed - 16, Apr',
-              style: TextStyle(fontWeight: FontWeight.w600),
+              style: TextStyle(fontWeight: FontWeight.w600,color: fCD),
             ),
             content: Container(
               width: MediaQuery.of(context).size.width,
@@ -130,9 +130,9 @@ class _ExperienceSetState extends State<ExperienceSet> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text("Assigned to",
-                                style: TextStyle(fontWeight: FontWeight.w500)),
+                                style: TextStyle(fontWeight: FontWeight.w500,color: fCD)),
                             Text("Robert Downey",
-                                style: TextStyle(fontWeight: FontWeight.w600)),
+                                style: TextStyle(fontWeight: FontWeight.w600,color: fCD)),
                           ],
                         ),
                       )
@@ -148,7 +148,7 @@ class _ExperienceSetState extends State<ExperienceSet> {
             state: StepState.complete,
             title: Text(
               "Task Removed",
-              style: TextStyle(fontWeight: FontWeight.w500),
+              style: TextStyle(fontWeight: FontWeight.w500,color: fCD),
             ),
             content: Container(),
           ),
@@ -156,7 +156,7 @@ class _ExperienceSetState extends State<ExperienceSet> {
             isActive: true,
             title: Text(
               'Working (due date - 24 Apr)',
-              style: TextStyle(fontWeight: FontWeight.w600),
+              style: TextStyle(fontWeight: FontWeight.w600,color: fCD),
             ),
             state: StepState.editing,
             content: Container(

@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(MdiIcons.viewDashboard, color: fCL),
             title: Text(
               "Dashboard",
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(color: fCD),
             ),
             backgroundColor: mC,
           ),
@@ -66,28 +66,28 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: Icon(MdiIcons.school, color: fCL),
               title: Text(
                 "Education",
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: fCD),
               ),
               backgroundColor: mC),
           BottomNavigationBarItem(
               icon: Icon(MdiIcons.developerBoard, color: fCL),
               title: Text(
                 "Experience",
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: fCD),
               ),
               backgroundColor: mC),
           BottomNavigationBarItem(
               icon: Icon(MdiIcons.deskLamp, color: fCL),
               title: Text(
                 "Skills",
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color:fCD),
               ),
               backgroundColor: mC),
           BottomNavigationBarItem(
               icon: Icon(Icons.perm_media_outlined, color: fCL),
               title: Text(
                 "Media",
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: fCD),
               ),
               backgroundColor: mC),
         ],

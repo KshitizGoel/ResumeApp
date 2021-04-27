@@ -5,10 +5,11 @@ import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:my_resume/repository/firebase/phone_auth.dart';
 import 'package:my_resume/screens/home.dart';
-import 'package:my_resume/services/firebase/phone_auth.dart';
-import 'package:my_resume/widgets/buttons.dart';
+ import 'package:my_resume/widgets/buttons.dart';
 import 'package:my_resume/widgets/decorations.dart';
+import 'package:provider/provider.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 import 'dart:async';
 
@@ -27,6 +28,16 @@ class _AuthenticationState extends State<Authentication> {
       'https://www.googleapis.com/auth/contacts.readonly',
     ],
   );
+  PhoneAuthVerification phoneAuthVerification;
+
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    phoneAuthVerification = Provider.of<PhoneAuthVerification>(context); //didDe
+  }
+
 
   GoogleSignInAccount _currentUser;
 
@@ -95,6 +106,7 @@ class _AuthenticationState extends State<Authentication> {
   }
 
   Future<dynamic> navigatingToSignedInUser() async {
+
     //Getting the credentials for the Google Sign In
     final GoogleSignInAuthentication googleAuth =
         await _currentUser.authentication;
@@ -126,10 +138,10 @@ class _AuthenticationState extends State<Authentication> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.12,
             ),
-            Text("Welcome"),
+            Text("Welcome" , ),
             Text(
               "Sign In",
-              style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w900),
+              style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w900 , color: hCT),
             ),
             SizedBox(
               height: 40.0,
@@ -157,11 +169,11 @@ class _AuthenticationState extends State<Authentication> {
                         offset: Offset(6, 2),
                         blurRadius: 6.0,
                         spreadRadius: 3.0),
-                    BoxShadow(
-                        color: Color.fromRGBO(255, 255, 255, 0.9),
-                        offset: Offset(-6, -2),
-                        blurRadius: 6.0,
-                        spreadRadius: 3.0)
+                    // BoxShadow(
+                    //     color: Color.fromRGBO(255, 255, 255, 0.9),
+                    //     offset: Offset(-6, -2),
+                    //     blurRadius: 6.0,
+                    //     spreadRadius: 3.0)
                   ]),
               child: Padding(
                 padding:
@@ -181,7 +193,7 @@ class _AuthenticationState extends State<Authentication> {
               padding: const EdgeInsets.only(top: 20.0),
               child: InkWell(
                 onTap: () async {
-                  sendingTheOtp(phoneNumberController.text.toString());
+                  phoneAuthVerification.sendingTheOtp(phoneNumberController.text.toString());
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
                     return OTPVerification();
@@ -279,4 +291,6 @@ class _AuthenticationState extends State<Authentication> {
       ),
     );
   }
+
+
 }

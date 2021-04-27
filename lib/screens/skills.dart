@@ -23,11 +23,16 @@ class _SkillSetState extends State<SkillSet> {
           //     publishingCards(),
           //   ],
           // ),
+          SizedBox(
+            height: 40,
+          ),
 
           languagesCards(context, "Flutter", "1.5 Years"),
+          SizedBox(
+            height: 40,
+          ),
           languagesCards(context, "Android", "1 Year"),
-          languagesCards(context, "Android", "1 Year"),
-          languagesCards(context, "Android", "1 Year"),
+
         ],
       ),
     );
@@ -51,7 +56,7 @@ class _SkillSetState extends State<SkillSet> {
             ),
             Padding(
               padding:
-                  const EdgeInsets.symmetric(vertical: 12.0 , horizontal: 15),
+                  const EdgeInsets.symmetric(vertical: 12.0, horizontal: 15),
               child: IntroCard(
                 child:
                     skillDescription(context, frameworkName, experienceYears),
@@ -68,19 +73,19 @@ class _SkillSetState extends State<SkillSet> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(
-                "Framework",
-                style: TextStyle(fontWeight: FontWeight.bold, color: fCD),
-              ),
-              Text(
-                framework,
-                style: TextStyle(fontWeight: FontWeight.bold, color: fCL),
-              ),
-            ],
-         ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text(
+              "Framework",
+              style: TextStyle(fontWeight: FontWeight.bold, color: fCD),
+            ),
+            Text(
+              framework,
+              style: TextStyle(fontWeight: FontWeight.bold, color: fCL),
+            ),
+          ],
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: Column(

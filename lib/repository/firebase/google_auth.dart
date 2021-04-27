@@ -14,7 +14,6 @@ GoogleSignIn _googleSignIn = GoogleSignIn(
 );
 
 
-
 //logging out the user from the App.
 Future<dynamic> loggingOutTheUser(BuildContext context) async {
   _googleSignIn.disconnect();
