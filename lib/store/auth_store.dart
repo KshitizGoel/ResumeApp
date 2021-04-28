@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:my_resume/repository/firebase/phone_auth.dart';
+import 'package:my_resume/repository/firebase/auth_repo.dart';
+import 'package:my_resume/services/auth_services/phone_auth.dart';
 
 class AuthStore {
-  PhoneAuthVerification phoneAuthVerification;
+
+  //For now changing the AuthRepository to PhoneAuth
+
+  PhoneAuth phoneAuthVerification;
 
   // constructor:---------------------------------------------------------------
-  AuthStore(PhoneAuthVerification phoneAuthVerification)
+  AuthStore(PhoneAuth phoneAuthVerification)
       : this.phoneAuthVerification = phoneAuthVerification;
 
   @observable

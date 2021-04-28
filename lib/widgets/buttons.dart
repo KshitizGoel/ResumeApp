@@ -95,7 +95,7 @@ class GeneralButton extends StatelessWidget {
         padding: const EdgeInsets.all(15.0),
         child: Icon(
           icon,
-          color: mC,
+          color: Colors.white,
         ),
       ),
     );

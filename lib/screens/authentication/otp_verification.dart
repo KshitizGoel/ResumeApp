@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_resume/repository/firebase/phone_auth.dart';
- import 'package:my_resume/widgets/decorations.dart';
+ import 'package:my_resume/services/auth_services/phone_auth.dart';
+import 'package:my_resume/widgets/decorations.dart';
 import 'package:provider/provider.dart';
 
 class OTPVerification extends StatefulWidget {
@@ -9,15 +9,14 @@ class OTPVerification extends StatefulWidget {
 }
 
 class _OTPVerificationState extends State<OTPVerification> {
-
   TextEditingController otpCodeController = TextEditingController();
 
-  PhoneAuthVerification phoneAuthVerification;
+  PhoneAuth phoneAuthVerification;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    phoneAuthVerification = Provider.of<PhoneAuthVerification>(context); //didDe
+    phoneAuthVerification = Provider.of<PhoneAuth>(context); //didDe
   }
 
   @override
@@ -63,13 +62,14 @@ class _OTPVerificationState extends State<OTPVerification> {
                     ]),
                 child: Padding(
                   padding:
-                  const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20),
+                      const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20),
                   child: TextField(
                     autofocus: true,
                     controller: otpCodeController,
                     keyboardType: TextInputType.phone,
-                    decoration:
-                    InputDecoration(border: InputBorder.none, hintText: "Enter 6 digit OTP code"),
+                    decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "Enter 6 digit OTP code"),
                   ),
                 ),
               ),
@@ -80,16 +80,17 @@ class _OTPVerificationState extends State<OTPVerification> {
             Padding(
               padding: const EdgeInsets.only(top: 20.0),
               child: InkWell(
-                onTap: (){
-                  phoneAuthVerification.verifyingTheOTP(otpCodeController.text.toString() , context);
+                onTap: () {
+                  phoneAuthVerification.verifyingTheOTP(
+                      otpCodeController.text.toString(), context);
                 },
                 child: Container(
                   padding: EdgeInsets.all(15.0),
                   child: Center(
                       child: Text(
-                        "Verify",
-                        style: TextStyle(color: Colors.white, fontSize: 16.0),
-                      )),
+                    "Verify",
+                    style: TextStyle(color: Colors.white, fontSize: 16.0),
+                  )),
                   decoration: BoxDecoration(
                       color: fCL,
                       borderRadius: BorderRadius.circular(100.0),
@@ -113,6 +114,4 @@ class _OTPVerificationState extends State<OTPVerification> {
       ),
     );
   }
-
-
 }

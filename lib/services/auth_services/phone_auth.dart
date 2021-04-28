@@ -2,16 +2,16 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:my_resume/screens/dashboard.dart';
 
+
 //  We are successfully authenticating my mobile Number.
 //  We are sending the OTP to every mobile.
 //  Minor Task : Navigating the user to next screen so that manual entry is allowed!
 //  Take codeSent to next Screen and then get the sms code from there and change the smsCode!
 
-class PhoneAuthVerification {
 
+class PhoneAuth{
 
-  Future <void> sendingTheOtp(String phoneNumber) async {
-
+  Future<void> sendingTheOtp(String phoneNumber) async {
     String _verificationId;
     FirebaseAuth auth = FirebaseAuth.instance;
 
@@ -48,7 +48,7 @@ class PhoneAuthVerification {
     }
   }
 
-  PhoneAuthVerification();
+  PhoneAuth();
 
   void verifyingTheOTP(String verificationCode, BuildContext context) async {
     String _verificationId;
@@ -68,4 +68,5 @@ class PhoneAuthVerification {
       print("Getting the Error here! \n$e");
     }
   }
+
 }
