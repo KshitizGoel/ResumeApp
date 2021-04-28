@@ -10,7 +10,7 @@ import 'package:my_resume/screens/dashboard.dart';
 class PhoneAuthVerification {
 
 
-  void sendingTheOtp(String phoneNumber) async {
+  Future <void> sendingTheOtp(String phoneNumber) async {
 
     String _verificationId;
     FirebaseAuth auth = FirebaseAuth.instance;

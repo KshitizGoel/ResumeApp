@@ -138,7 +138,7 @@ class _AuthenticationState extends State<Authentication> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.12,
             ),
-            Text("Welcome" , ),
+            Text("Welcome" ,style: TextStyle(color: cAuth), ),
             Text(
               "Sign In",
               style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w900 , color: hCT),
@@ -149,7 +149,7 @@ class _AuthenticationState extends State<Authentication> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Mobile Number"),
+                Text("Mobile Number",style: TextStyle(color: cAuth),),
                 Icon(
                   MdiIcons.phone,
                   color: fCD,
@@ -204,7 +204,7 @@ class _AuthenticationState extends State<Authentication> {
                   child: Center(
                       child: Text(
                     "Send OTP",
-                    style: TextStyle(color: Colors.white, fontSize: 16.0),
+                    style: TextStyle(color: Colors.white, fontSize: 16.0 , fontWeight : FontWeight.bold),
                   )),
                   decoration: BoxDecoration(
                       color: fCL,

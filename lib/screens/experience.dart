@@ -172,9 +172,9 @@ class _ExperienceSetState extends State<ExperienceSet> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text("Assigned to",
-                                style: TextStyle(fontWeight: FontWeight.w500)),
+                                style: TextStyle(fontWeight: FontWeight.w500,color: fCD)),
                             Text("Kshitiz Goel",
-                                style: TextStyle(fontWeight: FontWeight.w600)),
+                                style: TextStyle(fontWeight: FontWeight.w600,color: fCD)),
                           ],
                         ),
                       )
@@ -190,7 +190,7 @@ class _ExperienceSetState extends State<ExperienceSet> {
             state: StepState.indexed,
             title: Text(
               'Upcoming Task',
-              style: TextStyle(fontWeight: FontWeight.w600),
+              style: TextStyle(fontWeight: FontWeight.w600,color: fCD),
             ),
             content: Container(
               width: MediaQuery.of(context).size.width,
@@ -205,9 +205,9 @@ class _ExperienceSetState extends State<ExperienceSet> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text("Assign to",
-                                style: TextStyle(fontWeight: FontWeight.w500)),
+                                style: TextStyle(fontWeight: FontWeight.w500,color: fCD)),
                             Text("Nat Bentlee",
-                                style: TextStyle(fontWeight: FontWeight.w600)),
+                                style: TextStyle(fontWeight: FontWeight.w600,color: fCD)),
                           ],
                         ),
                       )

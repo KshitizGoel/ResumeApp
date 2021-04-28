@@ -3,6 +3,8 @@ Facebook Authentication :
 Run the app in terminal
 Access token is required and the app ID we have set is wrong IG..
 
+AppComponent Class :
+We have to make an app component class so as to fecilitate the stores with the essential repositories.
 
 
 Dark Theme Colors:
@@ -17,6 +19,7 @@ Color fCT = Colors.blue[300 ].withOpacity(0.95);
 Color fCB = Colors.blue[600].withOpacity(0.95);
 Color solidGreen = Colors.green.withOpacity(0.65);
 Color hCT = Colors.white;
+Color cAuth = Colors.white60;
 
 
 ****************************************************************************************************
@@ -34,4 +37,5 @@ Color fCT = Colors.blue.withOpacity(0.65);
 Color fCB = Colors.blue[700].withOpacity(0.65);
 Color solidGreen = Colors.green.withOpacity(0.65);
 Color hCT = Colors.black;
+Color cAuth = Colors.black54;
 
