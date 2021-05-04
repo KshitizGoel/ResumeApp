@@ -2,16 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:my_resume/screens/dashboard.dart';
 
+//This class is for retrieving the data from the backend!
 
-//  We are successfully authenticating my mobile Number.
-//  We are sending the OTP to every mobile.
-//  Minor Task : Navigating the user to next screen so that manual entry is allowed!
-//  Take codeSent to next Screen and then get the sms code from there and change the smsCode!
-
-
-class PhoneAuth{
-
-  Future<void> sendingTheOtp(String phoneNumber) async {
+class PhoneAuth {
+  Future<String> sendingTheOtp(String phoneNumber) async {
     String _verificationId;
     FirebaseAuth auth = FirebaseAuth.instance;
 
@@ -20,9 +14,7 @@ class PhoneAuth{
         phoneNumber: "+91 " + phoneNumber,
         timeout: const Duration(seconds: 30),
         verificationCompleted: (PhoneAuthCredential credential) async {
-          // ANDROID ONLY!
-
-          // Sign the user in (or link) with the auto-generated credential
+          // ANDROID ONLY !Sign the user in (or link) with the auto-generated credential
           await auth.signInWithCredential(credential);
           print("Executing the verificationCompleted Function");
         },
@@ -34,9 +26,7 @@ class PhoneAuth{
         },
         codeSent: (String verificationId, int resendToken) async {
           // Update the UI - wait for the user to enter the SMS code
-
           print("Executing the codeSent Function");
-
           _verificationId = verificationId;
         },
         codeAutoRetrievalTimeout: (String verificationId) {
@@ -46,11 +36,12 @@ class PhoneAuth{
     } catch (e) {
       print("Getting the Error here! \n$e");
     }
+
+    return _verificationId;
   }
 
-  PhoneAuth();
-
-  void verifyingTheOTP(String verificationCode, BuildContext context) async {
+  Future<void> verifyingTheOTP(
+      String verificationCode, BuildContext context) async {
     String _verificationId;
     FirebaseAuth auth = FirebaseAuth.instance;
     try {
@@ -59,14 +50,16 @@ class PhoneAuth{
 
       await auth.signInWithCredential(credential);
 
+
+      //The below navigation is to be commented!!!!
       Navigator.of(context).push(MaterialPageRoute(builder: (context) {
         return Dashboard();
       }));
-
       print("Successfully Signed In!!!");
+
     } catch (e) {
       print("Getting the Error here! \n$e");
     }
-  }
 
+  }
 }

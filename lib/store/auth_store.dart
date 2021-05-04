@@ -1,17 +1,15 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:mobx/mobx.dart';
 import 'package:my_resume/repository/firebase/auth_repo.dart';
-import 'package:my_resume/services/auth_services/phone_auth.dart';
+part 'auth_store.g.dart';
 
-class AuthStore {
+class AuthStore = _AuthStore with _$AuthStore;
 
-  //For now changing the AuthRepository to PhoneAuth
-
-  PhoneAuth phoneAuthVerification;
-
+abstract class _AuthStore with Store {
+  AuthRepository authRepository;
   // constructor:---------------------------------------------------------------
-  AuthStore(PhoneAuth phoneAuthVerification)
-      : this.phoneAuthVerification = phoneAuthVerification;
+  _AuthStore(AuthRepository authRepository)
+      : this.authRepository = authRepository;
 
   @observable
   String userGoogleID;
@@ -19,13 +17,39 @@ class AuthStore {
   @observable
   String userPhoneID;
 
+  @observable
+  String facebookID;
+
+
   @action
-  Future<void> sendOtp(String phoneNumber) async {
-    await phoneAuthVerification.sendingTheOtp(phoneNumber).then((value) {
+  Future<String> sendOtp(String phoneNumber) async {
+    return authRepository.sendTheOTP(phoneNumber).then((value) {
       print("Executing the sendOtp function successfully!");
     }).catchError((onError) {
       print("Getting the error in sendOtp function auth_store");
       throw onError;
     });
   }
+
+  @action
+  Future<void> verifyTheOtp(String verificationCode , BuildContext context) async{
+    return authRepository.verifyingTheOtp(verificationCode, context).then((value) {
+      return value;
+    }).catchError((onError){
+      print("Getting the error in sendOtp function auth_store");
+      throw onError;
+    });
+  }
+
+  @action
+  Future <String> facebookLogin() async{
+    return authRepository.facebookSignIn().then((value) {
+      print("Executing the facebook login ");
+      return value;
+    }).catchError((onError){
+      print("Getting the error in Store level Facebook login!!!!");
+      throw onError;
+    });
+  }
+
 }

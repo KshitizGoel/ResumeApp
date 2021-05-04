@@ -28,13 +28,10 @@ class _AuthenticationState extends State<Authentication> {
       'https://www.googleapis.com/auth/contacts.readonly',
     ],
   );
-  PhoneAuth phoneAuthVerification;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-
-    phoneAuthVerification = Provider.of<PhoneAuth>(context); //didDe
   }
 
   GoogleSignInAccount _currentUser;
@@ -67,41 +64,6 @@ class _AuthenticationState extends State<Authentication> {
     }
   }
 
-  static final FacebookLogin facebookSignIn = new FacebookLogin();
-
-  String _message = 'Log in/out by pressing the buttons below.';
-
-  Future<Null> _login() async {
-    final FacebookLoginResult result = await facebookSignIn.logIn(['email']);
-
-    switch (result.status) {
-      case FacebookLoginStatus.loggedIn:
-        final FacebookAccessToken accessToken = result.accessToken;
-        _showMessage('''
-         Logged in!
-         
-         Token: ${accessToken.token}
-         User id: ${accessToken.userId}
-         Expires: ${accessToken.expires}
-         Permissions: ${accessToken.permissions}
-         Declined permissions: ${accessToken.declinedPermissions}
-         ''');
-        break;
-      case FacebookLoginStatus.cancelledByUser:
-        _showMessage('Login cancelled by the user.');
-        break;
-      case FacebookLoginStatus.error:
-        _showMessage('Something went wrong with the login process.\n'
-            'Here\'s the error Facebook gave us: ${result.errorMessage}');
-        break;
-    }
-  }
-
-  void _showMessage(String message) {
-    setState(() {
-      _message = message;
-    });
-  }
 
   Future<dynamic> navigatingToSignedInUser() async {
     //Getting the credentials for the Google Sign In
@@ -197,8 +159,8 @@ class _AuthenticationState extends State<Authentication> {
               padding: const EdgeInsets.only(top: 20.0),
               child: InkWell(
                 onTap: () async {
-                  phoneAuthVerification
-                      .sendingTheOtp(phoneNumberController.text.toString());
+                  // phoneAuthVerification
+                  //     .sendingTheOtp(phoneNumberController.text.toString());
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
                     return OTPVerification();
@@ -269,7 +231,7 @@ class _AuthenticationState extends State<Authentication> {
                 ),
                 InkWell(
                   onTap: () {
-                    _login();
+                    // facebookLogin();
                     // Navigator.of(context)
                     //     .push(MaterialPageRoute(builder: (context) {
                     //   return HomeScreen(0);

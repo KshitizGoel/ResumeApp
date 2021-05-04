@@ -5,6 +5,8 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:my_resume/components/app_component.dart';
 import 'package:my_resume/repository/firebase/auth_repo.dart';
  import 'package:my_resume/screens/authentication/authentication.dart';
+import 'package:my_resume/screens/dashboard.dart';
+import 'package:my_resume/screens/home.dart';
 import 'package:my_resume/store/auth_store.dart';
 import 'package:provider/provider.dart';
 
@@ -20,18 +22,19 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+
+  AuthRepository authRepository;
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
 
-    final AuthRepository phoneAuthVerification = AuthRepository();
-    final AuthStore authStore = AuthStore(appComponent.getPhoneAuthVerification());
+    final AuthStore authStore = AuthStore(authRepository);
 
     return MultiProvider(
       providers: [
-        Provider<AuthRepository>(create: (_) => phoneAuthVerification),
         Provider<AuthStore>(create: (_) => authStore),
       ],
       child: Observer(
