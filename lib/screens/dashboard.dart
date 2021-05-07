@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:my_resume/constants/texts.dart';
+ import 'package:my_resume/constants/texts.dart';
 import 'package:my_resume/constants/urls.dart';
 import 'package:my_resume/repository/firebase/google_auth.dart';
-import 'package:my_resume/screens/authentication/authentication.dart';
- import 'package:my_resume/widgets/buttons.dart';
+  import 'package:my_resume/widgets/buttons.dart';
 import 'package:my_resume/widgets/cards.dart';
 import 'package:my_resume/widgets/decorations.dart';
 import 'package:my_resume/widgets/texts.dart';
@@ -28,7 +27,7 @@ class Dashboard extends StatelessWidget {
         centerTitle: false,
         leading: IconButton(
           onPressed: () {
-            _scaffoldKey.currentState.openDrawer();
+            _scaffoldKey.currentState!.openDrawer();
           },
           icon: Icon(
             Icons.menu,
@@ -38,7 +37,7 @@ class Dashboard extends StatelessWidget {
         actions: [
           IconButton(
               icon: Icon(
-                MdiIcons.logout,
+                AntDesign.logout,
                 color: fCD,
               ),
               onPressed: () =>  loggingOutTheUser(context))
@@ -122,22 +121,22 @@ class Dashboard extends StatelessWidget {
               children: <Widget>[
                 NMButton(
                   down: false,
-                  icon: MdiIcons.github,
+                  icon: AntDesign.github,
                   webUrl: UrlConstants.githubUrl,
                 ),
                 NMButton(
                   down: false,
-                  icon: MdiIcons.linkedin,
+                  icon: AntDesign.linkedin_square,
                   webUrl: UrlConstants.linkedInUrl,
                 ),
                 NMButton(
                   down: false,
-                  icon: MdiIcons.instagram,
+                  icon: AntDesign.instagram,
                   webUrl: UrlConstants.instagramUrl,
                 ),
                 NMButton(
                   down: false,
-                  icon: MdiIcons.facebook,
+                  icon: AntDesign.facebook_square,
                   webUrl: UrlConstants.facebookUrl,
                 ),
               ],
@@ -157,7 +156,7 @@ class Dashboard extends StatelessWidget {
                             fontSize: 18,
                             fontWeight: FontWeight.w700)),
                     Icon(
-                      MdiIcons.humanGreeting,
+                      MaterialIcons.child_friendly,
                       color: fCD,
                     ),
                   ],

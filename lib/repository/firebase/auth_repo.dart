@@ -33,9 +33,18 @@ class AuthRepository {
     });
   }
 
+  Future <void> googleSignIn() async{
+    return googleAuth.handleGoogleSignIn().then((value){
+      return value;
+    }).catchError((onError){
+      print("Getting the error in auth_repo !!!!! googleSignIn");
+      throw onError;
+    });
+  }
+
   Future<String> googleLogOut(BuildContext context) async {
     return googleAuth.loggingOutTheUser(context).then((value) {
-      return value;
+      return value.toString();
     }).catchError((onError) {
       print("Getting the error in Auth Repository!!!!! googleLogOut");
       throw onError;

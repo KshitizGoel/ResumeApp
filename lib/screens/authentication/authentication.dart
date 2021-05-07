@@ -1,12 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter_icons/flutter_icons.dart';
+ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:my_resume/repository/firebase/auth_repo.dart';
-import 'package:my_resume/screens/home.dart';
-import 'package:my_resume/services/auth_services/phone_auth.dart';
+ import 'package:my_resume/screens/home.dart';
+ import 'package:my_resume/store/auth_store.dart';
 import 'package:my_resume/widgets/buttons.dart';
 import 'package:my_resume/widgets/decorations.dart';
 import 'package:provider/provider.dart';
@@ -29,48 +27,42 @@ class _AuthenticationState extends State<Authentication> {
     ],
   );
 
+  late AuthStore authStore;
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    authStore = Provider.of<AuthStore>(context);
   }
 
-  GoogleSignInAccount _currentUser;
+  late GoogleSignInAccount _currentUser;
 
   TextEditingController phoneNumberController = TextEditingController();
 
-  String autoFillPhoneNumber;
+  late String autoFillPhoneNumber;
+
+  late GoogleSignInAccount account;
 
   @override
   void initState() {
     super.initState();
-    _googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount account) {
+    _googleSignIn.onCurrentUserChanged.listen((account) {
       setState(() {
-        _currentUser = account;
+        _currentUser = account!;
       });
-      if (_currentUser != null) {
-        print("Auto Logging In The User!!!!!");
-        print(_currentUser);
-        navigatingToSignedInUser();
-      }
+      print("Auto Logging In The User!!!!!");
+      print(_currentUser);
+      navigatingToSignedInUser();
     });
     _googleSignIn.signInSilently();
   }
-
-  Future<void> _handleGoogleSignIn() async {
-    try {
-      await _googleSignIn.signIn();
-    } catch (error) {
-      print(error);
-    }
-  }
-
 
   Future<dynamic> navigatingToSignedInUser() async {
     //Getting the credentials for the Google Sign In
     final GoogleSignInAuthentication googleAuth =
         await _currentUser.authentication;
 
-    final GoogleAuthCredential credential = GoogleAuthProvider.credential(
+    final OAuthCredential credential = GoogleAuthProvider.credential(
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
     );
@@ -117,7 +109,7 @@ class _AuthenticationState extends State<Authentication> {
                   style: TextStyle(color: cAuth),
                 ),
                 Icon(
-                  MdiIcons.phone,
+                  AntDesign.phone,
                   color: fCD,
                 ),
               ],
@@ -211,10 +203,12 @@ class _AuthenticationState extends State<Authentication> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 InkWell(
-                  onTap: _handleGoogleSignIn,
+                  onTap: () {
+                    authStore.googleSignIn();
+                  },
                   child: GeneralButton(
                     colors: fCR,
-                    icon: MdiIcons.google,
+                    icon: AntDesign.google,
                   ),
                 ),
                 InkWell(
@@ -226,7 +220,7 @@ class _AuthenticationState extends State<Authentication> {
                   },
                   child: GeneralButton(
                     colors: Colors.white60,
-                    icon: MdiIcons.github,
+                    icon: AntDesign.github,
                   ),
                 ),
                 InkWell(
@@ -239,7 +233,7 @@ class _AuthenticationState extends State<Authentication> {
                   },
                   child: GeneralButton(
                     colors: fCB,
-                    icon: MdiIcons.facebook,
+                    icon: AntDesign.facebook_square,
                   ),
                 ),
                 InkWell(
@@ -251,7 +245,7 @@ class _AuthenticationState extends State<Authentication> {
                   },
                   child: GeneralButton(
                     colors: fCT,
-                    icon: MdiIcons.twitter,
+                    icon: AntDesign.twitter,
                   ),
                 ),
               ],

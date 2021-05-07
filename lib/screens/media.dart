@@ -3,8 +3,8 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:my_resume/constants/urls.dart';
+import 'package:flutter_icons/flutter_icons.dart';
+ import 'package:my_resume/constants/urls.dart';
 import 'package:my_resume/widgets/buttons.dart';
 import 'package:my_resume/widgets/decorations.dart';
 import 'package:my_resume/widgets/texts.dart';
@@ -17,14 +17,14 @@ class MediaPage extends StatefulWidget {
 
 class _MediaPageState extends State<MediaPage> {
 
-  YoutubePlayerController _controller;
-  TextEditingController _idController;
-  TextEditingController _seekToController;
+  late YoutubePlayerController _controller;
+  late TextEditingController _idController;
+  late TextEditingController _seekToController;
 
   String videoId = 'u71QsZvObHs';
 
-  PlayerState _playerState;
-  YoutubeMetaData _videoMetaData;
+  late PlayerState _playerState;
+  late YoutubeMetaData _videoMetaData;
   double _volume = 100;
   bool _muted = true;
   bool _isPlayerReady = false;
@@ -139,7 +139,7 @@ class _MediaPageState extends State<MediaPage> {
                         horizontal: 20.0, vertical: 40),
                     child: NMButton(
                       down: false,
-                      icon: MdiIcons.pdfBox,
+                      icon: AntDesign.pdffile1,
                       webUrl: UrlConstants.githubUrl,
                     ),
                   ),
@@ -153,22 +153,22 @@ class _MediaPageState extends State<MediaPage> {
                       children: <Widget>[
                         NMButton(
                           down: false,
-                          icon: MdiIcons.googlePlay,
+                          icon: MaterialIcons.featured_video,
                           webUrl: UrlConstants.githubUrl,
                         ),
                         NMButton(
                           down: false,
-                          icon: MdiIcons.appleIos,
+                          icon: MaterialIcons.featured_video,
                           webUrl: UrlConstants.linkedInUrl,
                         ),
                         NMButton(
                           down: false,
-                          icon: MdiIcons.web,
+                          icon: MaterialIcons.featured_video,
                           webUrl: UrlConstants.instagramUrl,
                         ),
                         NMButton(
                           down: false,
-                          icon: MdiIcons.linkPlus,
+                          icon: MaterialIcons.featured_video,
                           webUrl: UrlConstants.facebookUrl,
                         ),
                       ],
@@ -182,13 +182,13 @@ class _MediaPageState extends State<MediaPage> {
                     children: [
                       VideoPlayerButton(
                         down: false,
-                        icon: MdiIcons.video,
-                        vidId: '8rUN1SAYNEE',
+                        icon: MaterialIcons.featured_video,
+                        vidId: '8rUN1SAYNEE', videoName: 'sampleVideo',
                       ),
                       VideoPlayerButton(
                         down: false,
-                        icon: MdiIcons.video,
-                        vidId: '8rUN1SAYNEE',
+                        icon: MaterialIcons.featured_video,
+                        vidId: '8rUN1SAYNEE', videoName: 'sampleVideo',
                       ),
                     ],
                   ),
@@ -200,13 +200,13 @@ class _MediaPageState extends State<MediaPage> {
                     children: [
                       VideoPlayerButton(
                         down: false,
-                        icon: MdiIcons.video,
-                        vidId: '8rUN1SAYNEE',
+                        icon: MaterialIcons.featured_video,
+                        vidId: '8rUN1SAYNEE', videoName: 'sampleVideo',
                       ),
                       VideoPlayerButton(
                         down: false,
-                        icon: MdiIcons.video,
-                        vidId: '8rUN1SAYNEE',
+                        icon: MaterialIcons.featured_video,
+                        vidId: '8rUN1SAYNEE', videoName: 'sampleVideo',
                       ),
                     ],
                   ),

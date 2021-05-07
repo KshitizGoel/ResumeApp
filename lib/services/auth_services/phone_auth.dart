@@ -1,12 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
 import 'package:my_resume/screens/dashboard.dart';
 
 //This class is for retrieving the data from the backend!
 
+@Singleton()
 class PhoneAuth {
   Future<String> sendingTheOtp(String phoneNumber) async {
-    String _verificationId;
+    String _verificationId = " ";
     FirebaseAuth auth = FirebaseAuth.instance;
 
     try {
@@ -24,8 +26,7 @@ class PhoneAuth {
           }
           // Handle other errors
         },
-        codeSent: (String verificationId, int resendToken) async {
-          // Update the UI - wait for the user to enter the SMS code
+        codeSent: (String verificationId, resendToken) async {
           print("Executing the codeSent Function");
           _verificationId = verificationId;
         },
@@ -42,7 +43,7 @@ class PhoneAuth {
 
   Future<void> verifyingTheOTP(
       String verificationCode, BuildContext context) async {
-    String _verificationId;
+    String _verificationId = '';
     FirebaseAuth auth = FirebaseAuth.instance;
     try {
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
@@ -50,16 +51,13 @@ class PhoneAuth {
 
       await auth.signInWithCredential(credential);
 
-
       //The below navigation is to be commented!!!!
       Navigator.of(context).push(MaterialPageRoute(builder: (context) {
         return Dashboard();
       }));
       print("Successfully Signed In!!!");
-
     } catch (e) {
       print("Getting the Error here! \n$e");
     }
-
   }
 }

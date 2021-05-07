@@ -57,16 +57,23 @@ mixin _$AuthStore on _AuthStore, Store {
   final _$sendOtpAsyncAction = AsyncAction('_AuthStore.sendOtp');
 
   @override
-  Future<String> sendOtp(String phoneNumber) {
+  Future<Null> sendOtp(String phoneNumber) {
     return _$sendOtpAsyncAction.run(() => super.sendOtp(phoneNumber));
   }
 
   final _$verifyTheOtpAsyncAction = AsyncAction('_AuthStore.verifyTheOtp');
 
   @override
-  Future<String> verifyTheOtp(String verificationCode, BuildContext context) {
+  Future<void> verifyTheOtp(String verificationCode, BuildContext context) {
     return _$verifyTheOtpAsyncAction
         .run(() => super.verifyTheOtp(verificationCode, context));
+  }
+
+  final _$googleSignInAsyncAction = AsyncAction('_AuthStore.googleSignIn');
+
+  @override
+  Future<void> googleSignIn() {
+    return _$googleSignInAsyncAction.run(() => super.googleSignIn());
   }
 
   final _$facebookLoginAsyncAction = AsyncAction('_AuthStore.facebookLogin');

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:my_resume/widgets/decorations.dart';
 
 class IntroCard extends StatelessWidget {
   final Widget child;
 
-  IntroCard({this.child});
+  IntroCard({required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +20,7 @@ class IntroCard extends StatelessWidget {
 class InvertIntroCard extends StatelessWidget {
   final Widget child;
 
-  InvertIntroCard({this.child});
+  InvertIntroCard({required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +37,7 @@ class NMCard extends StatelessWidget {
   final IconData icon;
   final String label;
 
-  const NMCard({this.active, this.icon, this.label});
+  const NMCard({required this.active,required this.icon, required this.label});
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +73,7 @@ class ImageCard extends StatelessWidget {
 
   final String imagePath;
 
-  ImageCard(this.down, {this.imagePath});
+  ImageCard(this.down, {required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +115,7 @@ class TimeLineCard extends StatelessWidget {
 class EduCard extends StatelessWidget {
   final Widget child;
 
-  EduCard({this.child});
+  EduCard({required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -135,7 +134,7 @@ class LeadingIconCard extends StatelessWidget {
 
 
 
-  LeadingIconCard(this.down, {this.imagePath});
+  LeadingIconCard(this.down, {required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
@@ -159,7 +158,7 @@ class SkillCard extends StatelessWidget {
   final bool down;
   final Widget childWidget;
 
-  const SkillCard({this.down, this.childWidget});
+  const SkillCard({required this.down,required this.childWidget});
 
   @override
   Widget build(BuildContext context) {
@@ -177,7 +176,7 @@ class PublishingCard extends StatelessWidget {
   final bool down;
   final Widget childWidget;
 
-   PublishingCard({this.down, this.childWidget});
+   PublishingCard({required this.down, required this.childWidget});
 
   @override
   Widget build(BuildContext context) {

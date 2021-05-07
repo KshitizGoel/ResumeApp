@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
+import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 import 'package:my_resume/repository/firebase/auth_repo.dart';
 part 'auth_store.g.dart';
-
+@Injectable()
 class AuthStore = _AuthStore with _$AuthStore;
 
 abstract class _AuthStore with Store {
@@ -12,17 +13,17 @@ abstract class _AuthStore with Store {
       : this.authRepository = authRepository;
 
   @observable
-  String userGoogleID;
+  late String userGoogleID;
 
   @observable
-  String userPhoneID;
+  late String userPhoneID;
 
   @observable
-  String facebookID;
+  late String facebookID;
 
 
   @action
-  Future<String> sendOtp(String phoneNumber) async {
+  Future<Null> sendOtp(String phoneNumber) async {
     return authRepository.sendTheOTP(phoneNumber).then((value) {
       print("Executing the sendOtp function successfully!");
     }).catchError((onError) {
@@ -37,6 +38,16 @@ abstract class _AuthStore with Store {
       return value;
     }).catchError((onError){
       print("Getting the error in sendOtp function auth_store");
+      throw onError;
+    });
+  }
+
+  @action
+  Future <void> googleSignIn() async{
+    return authRepository.googleSignIn().then((value) {
+      return value;
+    }).catchError((onError){
+      print("Getting the error in auth_store googleSignIn");
       throw onError;
     });
   }

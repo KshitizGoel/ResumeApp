@@ -3,8 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_resume/widgets/decorations.dart';
-import 'package:my_resume/widgets/texts.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoPlayer extends StatefulWidget {
 
@@ -17,17 +16,17 @@ class VideoPlayer extends StatefulWidget {
 }
 
 class _VideoPlayerState extends State<VideoPlayer> {
-  YoutubePlayerController _controller;
-  TextEditingController _idController;
-  TextEditingController _seekToController;
+  late YoutubePlayerController _controller;
+  late TextEditingController _idController;
+  late TextEditingController _seekToController;
 
 
-  final String videoId;
+  late final String videoId;
 
-  _VideoPlayerState(this.videoId);
+   _VideoPlayerState(this.videoId);
 
-  PlayerState _playerState;
-  YoutubeMetaData _videoMetaData;
+  late PlayerState _playerState;
+  late YoutubeMetaData _videoMetaData;
   double _volume = 100;
   bool _muted = true;
   bool _isPlayerReady = false;

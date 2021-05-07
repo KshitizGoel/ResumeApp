@@ -9,7 +9,7 @@ class NMButton extends StatelessWidget {
   final IconData icon;
   final String webUrl;
 
-  const NMButton({this.down, this.icon, this.webUrl});
+  const NMButton({required this.down,required this.icon, required this.webUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class VideoPlayerButton extends StatelessWidget {
   final String videoName;
   final String vidId;
 
-  const VideoPlayerButton({this.down, this.icon, this.videoName, this.vidId});
+  const VideoPlayerButton({required this.down, required this.icon, required this.videoName,required this.vidId});
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +71,7 @@ class VideoPlayerButton extends StatelessWidget {
 class GeneralButton extends StatelessWidget {
   final IconData icon;
   final Color colors;
-  const GeneralButton({this.colors , this.icon});
+  const GeneralButton({required this.colors , required this.icon});
 
   @override
   Widget build(BuildContext context) {

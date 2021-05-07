@@ -41,20 +41,20 @@ class _ExperienceSetState extends State<ExperienceSet> {
           primarySwatch: Colors.indigo,
           colorScheme: ColorScheme.light(primary: Colors.indigoAccent)),
       child: Stepper(
-        controlsBuilder: (BuildContext context,
-            {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
-          return Container(
-            margin: EdgeInsets.only(top: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  height: 10,
-                )
-              ],
-            ),
-          );
-        },
+      //   controlsBuilder: (BuildContext context,
+      //       {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
+      //     return Container(
+      //       margin: EdgeInsets.only(top: 8),
+      //       child: Row(
+      //         mainAxisAlignment: MainAxisAlignment.center,
+      //         children: <Widget>[
+      //           Container(
+      //             height: 10,
+      //           )
+      //         ],
+      //       ),
+      //     );
+      // },
         currentStep: _currentStep,
         onStepContinue: () {
           if (_currentStep >= 4) return;

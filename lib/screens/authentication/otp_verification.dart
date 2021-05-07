@@ -11,7 +11,7 @@ class OTPVerification extends StatefulWidget {
 class _OTPVerificationState extends State<OTPVerification> {
   TextEditingController otpCodeController = TextEditingController();
 
-  PhoneAuth phoneAuthVerification;
+  late PhoneAuth phoneAuthVerification;
 
   @override
   void didChangeDependencies() {

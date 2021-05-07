@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:my_resume/widgets/cards.dart';
+import 'package:flutter_icons/flutter_icons.dart';
+ import 'package:my_resume/widgets/cards.dart';
 import 'package:my_resume/widgets/decorations.dart';
 import 'package:my_resume/widgets/texts.dart';
 
@@ -106,7 +106,7 @@ class _SkillSetState extends State<SkillSet> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Icon(
-              MdiIcons.professionalHexagon,
+              AntDesign.star,
               color: solidGreen,
               size: 30,
             ),

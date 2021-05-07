@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:my_resume/screens/dashboard.dart';
 import 'package:my_resume/screens/skills.dart';
 import 'package:my_resume/widgets/decorations.dart';
@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(MdiIcons.viewDashboard, color: fCL),
+            icon: Icon(AntDesign.dashboard, color: fCL),
             title: Text(
               "Dashboard",
               style: TextStyle(color: fCD),
@@ -63,24 +63,24 @@ class _HomeScreenState extends State<HomeScreen> {
             backgroundColor: mC,
           ),
           BottomNavigationBarItem(
-              icon: Icon(MdiIcons.school, color: fCL),
+              icon: Icon(MaterialIcons.school, color: fCL),
               title: Text(
                 "Education",
                 style: TextStyle(color: fCD),
               ),
               backgroundColor: mC),
           BottomNavigationBarItem(
-              icon: Icon(MdiIcons.developerBoard, color: fCL),
+              icon: Icon(MaterialIcons.developer_board, color: fCL),
               title: Text(
                 "Experience",
                 style: TextStyle(color: fCD),
               ),
               backgroundColor: mC),
           BottomNavigationBarItem(
-              icon: Icon(MdiIcons.deskLamp, color: fCL),
+              icon: Icon(MaterialIcons.laptop_mac, color: fCL),
               title: Text(
                 "Skills",
-                style: TextStyle(color:fCD),
+                style: TextStyle(color: fCD),
               ),
               backgroundColor: mC),
           BottomNavigationBarItem(

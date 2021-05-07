@@ -4,7 +4,7 @@ import 'package:my_resume/screens/authentication/authentication.dart';
 
 //Repository level for the google auth
 
-GoogleSignInAccount currentUser;
+late GoogleSignInAccount currentUser;
 
 //Asking about the permissions from the users like contacts , gallery etc..
 GoogleSignIn _googleSignIn = GoogleSignIn(
