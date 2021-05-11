@@ -4,6 +4,7 @@ import 'package:flutter_icons/flutter_icons.dart';
  import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:google_sign_in/google_sign_in.dart';
  import 'package:my_resume/screens/home.dart';
+import 'package:my_resume/screens/user_choice_screen.dart';
  import 'package:my_resume/store/auth_store.dart';
 import 'package:my_resume/widgets/buttons.dart';
 import 'package:my_resume/widgets/decorations.dart';
@@ -219,7 +220,7 @@ class _AuthenticationState extends State<Authentication> {
                     }));
                   },
                   child: GeneralButton(
-                    colors: Colors.white60,
+                    colors: fCD,
                     icon: AntDesign.github,
                   ),
                 ),
@@ -238,9 +239,8 @@ class _AuthenticationState extends State<Authentication> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return HomeScreen(0);
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                      return UserChoice();
                     }));
                   },
                   child: GeneralButton(

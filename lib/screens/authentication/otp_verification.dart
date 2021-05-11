@@ -11,13 +11,11 @@ class OTPVerification extends StatefulWidget {
 class _OTPVerificationState extends State<OTPVerification> {
   TextEditingController otpCodeController = TextEditingController();
 
-  late PhoneAuth phoneAuthVerification;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    phoneAuthVerification = Provider.of<PhoneAuth>(context); //didDe
-  }
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -81,8 +79,7 @@ class _OTPVerificationState extends State<OTPVerification> {
               padding: const EdgeInsets.only(top: 20.0),
               child: InkWell(
                 onTap: () {
-                  phoneAuthVerification.verifyingTheOTP(
-                      otpCodeController.text.toString(), context);
+
                 },
                 child: Container(
                   padding: EdgeInsets.all(15.0),

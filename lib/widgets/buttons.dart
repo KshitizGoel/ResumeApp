@@ -101,3 +101,34 @@ class GeneralButton extends StatelessWidget {
     );
   }
 }
+
+class UserChoiceButtons extends StatelessWidget {
+   final Color colors;
+   final Widget child ;
+  const UserChoiceButtons({required this.colors  , required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: colors,
+          boxShadow: [
+            BoxShadow(
+              color: mCD,
+              offset: Offset(10, 10),
+              blurRadius: 10,
+            ),
+            BoxShadow(
+              color: mCL,
+              offset: Offset(-10, -10),
+              blurRadius: 10,
+            ),
+          ]),
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: child,
+      ),
+    );
+  }
+}

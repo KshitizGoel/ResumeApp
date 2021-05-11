@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:google_sign_in/google_sign_in.dart';
- import 'package:my_resume/constants/texts.dart';
+import 'package:my_resume/constants/texts.dart';
 import 'package:my_resume/constants/urls.dart';
 import 'package:my_resume/repository/firebase/google_auth.dart';
-  import 'package:my_resume/widgets/buttons.dart';
+import 'package:my_resume/widgets/buttons.dart';
 import 'package:my_resume/widgets/cards.dart';
 import 'package:my_resume/widgets/decorations.dart';
 import 'package:my_resume/widgets/texts.dart';
@@ -40,7 +39,7 @@ class Dashboard extends StatelessWidget {
                 AntDesign.logout,
                 color: fCD,
               ),
-              onPressed: () =>  loggingOutTheUser(context))
+              onPressed: () => loggingOutTheUser(context))
         ],
       ),
       drawer: Drawer(
