@@ -151,9 +151,9 @@ class _AuthenticationState extends State<Authentication> {
             Padding(
               padding: const EdgeInsets.only(top: 20.0),
               child: InkWell(
-                onTap: () async {
-                  // phoneAuthVerification
-                  //     .sendingTheOtp(phoneNumberController.text.toString());
+                onTap: ()  {
+
+                  authStore.sendOtp(phoneNumberController.text.toString());
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
                     return OTPVerification();

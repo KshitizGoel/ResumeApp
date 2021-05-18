@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(AntDesign.dashboard, color: fCL),
             title: Text(
               "Dashboard",
-              style: TextStyle(color: fCD),
+              style: TextStyle(color: Colors.black),
             ),
             backgroundColor: mC,
           ),
@@ -66,28 +66,28 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: Icon(MaterialIcons.school, color: fCL),
               title: Text(
                 "Education",
-                style: TextStyle(color: fCD),
+                style: TextStyle(color: Colors.black),
               ),
               backgroundColor: mC),
           BottomNavigationBarItem(
               icon: Icon(MaterialIcons.developer_board, color: fCL),
               title: Text(
                 "Experience",
-                style: TextStyle(color: fCD),
+                style: TextStyle(color: Colors.black),
               ),
               backgroundColor: mC),
           BottomNavigationBarItem(
               icon: Icon(MaterialIcons.laptop_mac, color: fCL),
               title: Text(
                 "Skills",
-                style: TextStyle(color: fCD),
+                style: TextStyle(color: Colors.black),
               ),
               backgroundColor: mC),
           BottomNavigationBarItem(
               icon: Icon(Icons.perm_media_outlined, color: fCL),
               title: Text(
                 "Media",
-                style: TextStyle(color: fCD),
+                style: TextStyle(color: Colors.black),
               ),
               backgroundColor: mC),
         ],
