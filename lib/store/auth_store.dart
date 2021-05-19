@@ -33,8 +33,8 @@ abstract class _AuthStore with Store {
   }
 
   @action
-  Future<void> verifyTheOtp(String verificationCode , BuildContext context) async{
-    return authRepository.verifyingTheOtp(verificationCode, context).then((value) {
+  Future<void> verifyTheOtp(String verificationCode ) async{
+    return authRepository.verifyingTheOtp(verificationCode ).then((value) {
       return value;
     }).catchError((onError){
       print("Getting the error in sendOtp function auth_store");

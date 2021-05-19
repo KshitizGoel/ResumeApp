@@ -41,8 +41,7 @@ class PhoneAuth {
     return _verificationId;
   }
 
-  Future<void> verifyingTheOTP(
-      String verificationCode, BuildContext context) async {
+  Future<void> verifyingTheOTP(String verificationCode) async {
     String _verificationId = '';
     FirebaseAuth auth = FirebaseAuth.instance;
     try {
@@ -51,10 +50,7 @@ class PhoneAuth {
 
       await auth.signInWithCredential(credential);
 
-      //The below navigation is to be commented!!!!
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-        return Dashboard();
-      }));
+
       print("Successfully Signed In!!!");
     } catch (e) {
       print("Getting the Error here! \n$e");

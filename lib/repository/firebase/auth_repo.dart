@@ -22,8 +22,8 @@ class AuthRepository {
   }
 
   Future<void> verifyingTheOtp(
-      String verificationCode, BuildContext context) async {
-    return phoneAuth.verifyingTheOTP(verificationCode, context).then((value) {
+      String verificationCode ) async {
+    return phoneAuth.verifyingTheOTP(verificationCode ).then((value) {
       print("Executing the function verifyTheOTP in Auth Repository!!!! ");
 
       return value;

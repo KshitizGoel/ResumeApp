@@ -11,11 +11,14 @@ class OTPVerification extends StatefulWidget {
 class _OTPVerificationState extends State<OTPVerification> {
   TextEditingController otpCodeController = TextEditingController();
 
+  late AuthStore authStore;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-   }
+    authStore = Provider.of<AuthStore>(context);
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,6 +83,15 @@ class _OTPVerificationState extends State<OTPVerification> {
               child: InkWell(
                 onTap: () {
 
+                  //May or May not work.....
+
+                  authStore.verifyTheOtp(otpCodeController.text.toString());
+
+
+                  // This is supposed to be
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                    return Home(0);
+                  }));
                 },
                 child: Container(
                   padding: EdgeInsets.all(15.0),
