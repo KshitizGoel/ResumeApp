@@ -17,8 +17,8 @@ import 'module/repository_module.dart'
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
-Future <_i1.GetIt> $initGetIt(_i1.GetIt get,
-    {String? environment, _i2.EnvironmentFilter? environmentFilter}) async {
+_i1.GetIt $initGetIt(_i1.GetIt get,
+    {String? environment, _i2.EnvironmentFilter? environmentFilter}) {
   final gh = _i2.GetItHelper(get, environment, environmentFilter);
   final repositoryModule = _$RepositoryModule();
   gh.factory<_i3.AuthRepository>(() => repositoryModule.authRepository(
@@ -27,7 +27,7 @@ Future <_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.singleton<_i6.FacebookAuth>(_i6.FacebookAuth());
   gh.singleton<_i5.GoogleAuth>(_i5.GoogleAuth());
   gh.singleton<_i4.PhoneAuth>(_i4.PhoneAuth());
-   return    get;
+  return get;
 }
 
 class _$RepositoryModule extends _i8.RepositoryModule {}

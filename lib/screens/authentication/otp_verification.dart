@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
- import 'package:my_resume/services/auth_services/phone_auth.dart';
+import 'package:my_resume/services/auth_services/phone_auth.dart';
 import 'package:my_resume/widgets/decorations.dart';
 import 'package:provider/provider.dart';
+import 'package:my_resume/screens/home.dart';
+import 'package:my_resume/store/auth_store.dart';
 
 class OTPVerification extends StatefulWidget {
   @override
@@ -17,7 +19,6 @@ class _OTPVerificationState extends State<OTPVerification> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     authStore = Provider.of<AuthStore>(context);
-
   }
 
   @override
@@ -82,15 +83,14 @@ class _OTPVerificationState extends State<OTPVerification> {
               padding: const EdgeInsets.only(top: 20.0),
               child: InkWell(
                 onTap: () {
-
                   //May or May not work.....
 
                   authStore.verifyTheOtp(otpCodeController.text.toString());
 
-
                   // This is supposed to be
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                    return Home(0);
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return HomeScreen(0);
                   }));
                 },
                 child: Container(

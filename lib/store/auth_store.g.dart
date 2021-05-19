@@ -64,9 +64,9 @@ mixin _$AuthStore on _AuthStore, Store {
   final _$verifyTheOtpAsyncAction = AsyncAction('_AuthStore.verifyTheOtp');
 
   @override
-  Future<void> verifyTheOtp(String verificationCode, BuildContext context) {
+  Future<void> verifyTheOtp(String verificationCode) {
     return _$verifyTheOtpAsyncAction
-        .run(() => super.verifyTheOtp(verificationCode, context));
+        .run(() => super.verifyTheOtp(verificationCode));
   }
 
   final _$googleSignInAsyncAction = AsyncAction('_AuthStore.googleSignIn');

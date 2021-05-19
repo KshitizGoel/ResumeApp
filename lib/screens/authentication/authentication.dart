@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
- import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:google_sign_in/google_sign_in.dart';
- import 'package:my_resume/screens/home.dart';
+import 'package:my_resume/screens/home.dart';
 import 'package:my_resume/screens/user_choice_screen.dart';
- import 'package:my_resume/store/auth_store.dart';
+import 'package:my_resume/store/auth_store.dart';
 import 'package:my_resume/widgets/buttons.dart';
 import 'package:my_resume/widgets/decorations.dart';
 import 'package:provider/provider.dart';
@@ -151,8 +151,7 @@ class _AuthenticationState extends State<Authentication> {
             Padding(
               padding: const EdgeInsets.only(top: 20.0),
               child: InkWell(
-                onTap: ()  {
-
+                onTap: () {
                   authStore.sendOtp(phoneNumberController.text.toString());
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
@@ -239,7 +238,8 @@ class _AuthenticationState extends State<Authentication> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
                       return UserChoice();
                     }));
                   },
